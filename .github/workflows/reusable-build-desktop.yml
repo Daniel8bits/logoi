@@ -1,0 +1,65 @@
+name: Reusable Build Desktop
+
+on:
+  workflow_call:
+    inputs:
+      platform:
+        description: Target platform (linux, macos, windows)
+        required: true
+        type: string
+      artifact-name:
+        description: Artifact name for upload
+        required: true
+        type: string
+      flutter-version:
+        description: Flutter SDK version override
+        required: false
+        type: string
+        default: ''
+
+jobs:
+  build:
+    runs-on: ${{ inputs.platform == 'linux' && 'ubuntu-latest' || inputs.platform == 'macos' && 'macos-latest' || 'windows-latest' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-flutter
+        with:
+          flutter-version: ${{ inputs.flutter-version }}
+          enable-linux-deps: ${{ inputs.platform == 'linux' && 'true' || 'false' }}
+
+      - name: Build release
+        shell: bash
+        run: |
+          flutter build ${{ inputs.platform }} \
+            --release \
+            --obfuscate \
+            --split-debug-info=build/debug-info
+
+      - name: Package Linux
+        if: inputs.platform == 'linux'
+        shell: bash
+        run: bash tool/ci/package_linux.sh .
+
+      - name: Package macOS
+        if: inputs.platform == 'macos'
+        shell: bash
+        run: bash tool/ci/package_macos.sh .
+
+      - name: Package Windows
+        if: inputs.platform == 'windows'
+        shell: pwsh
+        run: ./tool/ci/package_windows.ps1 -Root .
+
+      - name: Upload release artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.artifact-name }}
+          path: dist/logoi-*
+
+      - name: Upload debug symbols
+        uses: actions/upload-artifact@v4
+        with:
+          name: logoi-debug-symbols-${{ inputs.platform }}
+          path: build/debug-info/
+          if-no-files-found: ignore

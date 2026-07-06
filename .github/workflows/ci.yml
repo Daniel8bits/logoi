@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main, release]
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    if: |
+      (github.base_ref == 'main' && github.head_ref == 'dev') ||
+      (github.base_ref == 'release' && github.head_ref == 'main')
+    uses: ./.github/workflows/reusable-quality.yml
+
+  build-linux:
+    needs: quality
+    if: |
+      (github.base_ref == 'main' && github.head_ref == 'dev') ||
+      (github.base_ref == 'release' && github.head_ref == 'main')
+    uses: ./.github/workflows/reusable-build-desktop.yml
+    with:
+      platform: linux
+      artifact-name: logoi-linux-x64
+
+  build-macos:
+    needs: quality
+    if: |
+      (github.base_ref == 'main' && github.head_ref == 'dev') ||
+      (github.base_ref == 'release' && github.head_ref == 'main')
+    uses: ./.github/workflows/reusable-build-desktop.yml
+    with:
+      platform: macos
+      artifact-name: logoi-macos
+
+  build-windows:
+    needs: quality
+    if: |
+      (github.base_ref == 'main' && github.head_ref == 'dev') ||
+      (github.base_ref == 'release' && github.head_ref == 'main')
+    uses: ./.github/workflows/reusable-build-desktop.yml
+    with:
+      platform: windows
+      artifact-name: logoi-windows-x64

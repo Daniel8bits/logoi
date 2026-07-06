@@ -1,0 +1,110 @@
+name: Release
+
+on:
+  push:
+    branches: [release]
+  workflow_dispatch:
+    inputs:
+      force_version:
+        description: Override version tag (e.g. 0.1.0). Leave empty to use pubspec.yaml.
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.sha }}
+  cancel-in-progress: false
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.extract.outputs.version }}
+      build: ${{ steps.extract.outputs.build }}
+      tag: ${{ steps.resolve.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: extract
+        shell: bash
+        run: bash tool/ci/extract_version.sh
+
+      - id: resolve
+        shell: bash
+        run: |
+          if [[ -n "${{ inputs.force_version }}" ]]; then
+            echo "tag=v${{ inputs.force_version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=${{ steps.extract.outputs.tag }}" >> "$GITHUB_OUTPUT"
+          fi
+
+  build-linux:
+    needs: version
+    uses: ./.github/workflows/reusable-build-desktop.yml
+    with:
+      platform: linux
+      artifact-name: logoi-linux-x64
+
+  build-macos:
+    needs: version
+    uses: ./.github/workflows/reusable-build-desktop.yml
+    with:
+      platform: macos
+      artifact-name: logoi-macos
+
+  build-windows:
+    needs: version
+    uses: ./.github/workflows/reusable-build-desktop.yml
+    with:
+      platform: windows
+      artifact-name: logoi-windows-x64
+
+  publish:
+    needs: [version, build-linux, build-macos, build-windows]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          pattern: logoi-*
+          merge-multiple: true
+
+      - name: List artifacts
+        run: ls -la artifacts/
+
+      - name: Sign checksums with GPG
+        id: gpg
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: bash tool/ci/gpg_sign_release.sh artifacts
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.version.outputs.tag }}
+          name: Logoi ${{ needs.version.outputs.tag }}
+          generate_release_notes: true
+          body: |
+            ## Verificação de integridade
+
+            Fingerprint GPG: `${{ steps.gpg.outputs.gpg_fingerprint }}`
+
+            ```bash
+            gpg --import .github/gpg/logoi-release.pub   # ou baixe a chave pública do repositório
+            gpg --verify SHA256SUMS.asc SHA256SUMS
+            sha256sum -c SHA256SUMS
+            ```
+
+            Build number: `${{ needs.version.outputs.build }}`
+          files: |
+            artifacts/logoi-linux-x64.tar.gz
+            artifacts/logoi-macos.zip
+            artifacts/logoi-windows-x64.zip
+            artifacts/SHA256SUMS
+            artifacts/SHA256SUMS.asc
