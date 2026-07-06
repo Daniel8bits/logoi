@@ -1,0 +1,6 @@
+{
+  "elements": {},
+  "imports": [
+    "package:logoi/core/utils/result.dart"
+  ]
+}

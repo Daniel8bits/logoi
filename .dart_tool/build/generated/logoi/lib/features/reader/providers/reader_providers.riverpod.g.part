@@ -1,0 +1,298 @@
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(documentRepository)
+final documentRepositoryProvider = DocumentRepositoryProvider._();
+
+final class DocumentRepositoryProvider
+    extends
+        $FunctionalProvider<
+          DocumentRepository,
+          DocumentRepository,
+          DocumentRepository
+        >
+    with $Provider<DocumentRepository> {
+  DocumentRepositoryProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'documentRepositoryProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$documentRepositoryHash();
+
+  @$internal
+  @override
+  $ProviderElement<DocumentRepository> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  DocumentRepository create(Ref ref) {
+    return documentRepository(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(DocumentRepository value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<DocumentRepository>(value),
+    );
+  }
+}
+
+String _$documentRepositoryHash() =>
+    r'01a5e586af04e31d95831be3f5e56074e637eff4';
+
+@ProviderFor(documentList)
+final documentListProvider = DocumentListProvider._();
+
+final class DocumentListProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<DocumentRow>>,
+          List<DocumentRow>,
+          Stream<List<DocumentRow>>
+        >
+    with
+        $FutureModifier<List<DocumentRow>>,
+        $StreamProvider<List<DocumentRow>> {
+  DocumentListProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'documentListProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$documentListHash();
+
+  @$internal
+  @override
+  $StreamProviderElement<List<DocumentRow>> $createElement(
+    $ProviderPointer pointer,
+  ) => $StreamProviderElement(pointer);
+
+  @override
+  Stream<List<DocumentRow>> create(Ref ref) {
+    return documentList(ref);
+  }
+}
+
+String _$documentListHash() => r'0300098a08ad91cb4c3f9819335fdf217b64b188';
+
+@ProviderFor(documentById)
+final documentByIdProvider = DocumentByIdFamily._();
+
+final class DocumentByIdProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<DocumentRow?>,
+          DocumentRow?,
+          Stream<DocumentRow?>
+        >
+    with $FutureModifier<DocumentRow?>, $StreamProvider<DocumentRow?> {
+  DocumentByIdProvider._({
+    required DocumentByIdFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'documentByIdProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$documentByIdHash();
+
+  @override
+  String toString() {
+    return r'documentByIdProvider'
+        ''
+        '($argument)';
+  }
+
+  @$internal
+  @override
+  $StreamProviderElement<DocumentRow?> $createElement(
+    $ProviderPointer pointer,
+  ) => $StreamProviderElement(pointer);
+
+  @override
+  Stream<DocumentRow?> create(Ref ref) {
+    final argument = this.argument as String;
+    return documentById(ref, argument);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is DocumentByIdProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
+}
+
+String _$documentByIdHash() => r'7c98b59c06b5a94f52f8e4ab36337e64acfa637d';
+
+final class DocumentByIdFamily extends $Family
+    with $FunctionalFamilyOverride<Stream<DocumentRow?>, String> {
+  DocumentByIdFamily._()
+    : super(
+        retry: null,
+        name: r'documentByIdProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  DocumentByIdProvider call(String documentId) =>
+      DocumentByIdProvider._(argument: documentId, from: this);
+
+  @override
+  String toString() => r'documentByIdProvider';
+}
+
+@ProviderFor(documentStructure)
+final documentStructureProvider = DocumentStructureFamily._();
+
+final class DocumentStructureProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<StructureRow>>,
+          List<StructureRow>,
+          FutureOr<List<StructureRow>>
+        >
+    with
+        $FutureModifier<List<StructureRow>>,
+        $FutureProvider<List<StructureRow>> {
+  DocumentStructureProvider._({
+    required DocumentStructureFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'documentStructureProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$documentStructureHash();
+
+  @override
+  String toString() {
+    return r'documentStructureProvider'
+        ''
+        '($argument)';
+  }
+
+  @$internal
+  @override
+  $FutureProviderElement<List<StructureRow>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<StructureRow>> create(Ref ref) {
+    final argument = this.argument as String;
+    return documentStructure(ref, argument);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is DocumentStructureProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
+}
+
+String _$documentStructureHash() => r'777e9558f805d8159056703d677fa833291954bb';
+
+final class DocumentStructureFamily extends $Family
+    with $FunctionalFamilyOverride<FutureOr<List<StructureRow>>, String> {
+  DocumentStructureFamily._()
+    : super(
+        retry: null,
+        name: r'documentStructureProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  DocumentStructureProvider call(String documentId) =>
+      DocumentStructureProvider._(argument: documentId, from: this);
+
+  @override
+  String toString() => r'documentStructureProvider';
+}
+
+@ProviderFor(Reader)
+final readerProvider = ReaderProvider._();
+
+final class ReaderProvider extends $NotifierProvider<Reader, ReaderState> {
+  ReaderProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'readerProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$readerHash();
+
+  @$internal
+  @override
+  Reader create() => Reader();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(ReaderState value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<ReaderState>(value),
+    );
+  }
+}
+
+String _$readerHash() => r'bef8ad4649a97397ef523a1c45157277e6f18c90';
+
+abstract class _$Reader extends $Notifier<ReaderState> {
+  ReaderState build();
+  @$mustCallSuper
+  @override
+  WhenComplete runBuild() {
+    final ref = this.ref as $Ref<ReaderState, ReaderState>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<ReaderState, ReaderState>,
+              ReaderState,
+              Object?,
+              Object?
+            >;
+    return element.handleCreate(ref, build);
+  }
+}

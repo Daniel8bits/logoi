@@ -1,0 +1,10 @@
+{
+  "elements": {},
+  "imports": [
+    "package:logoi/core/ai/models.dart",
+    "package:logoi/core/database/daos/document_dao.dart",
+    "package:logoi/core/database/daos/search_dao.dart",
+    "package:logoi/core/processing/compressor.dart",
+    "package:logoi/core/processing/semantic_search.dart"
+  ]
+}

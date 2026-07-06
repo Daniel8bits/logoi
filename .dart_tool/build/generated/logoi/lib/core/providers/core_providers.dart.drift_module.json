@@ -1,0 +1,12 @@
+{
+  "elements": {},
+  "imports": [
+    "package:riverpod_annotation/riverpod_annotation.dart",
+    "package:shared_preferences/shared_preferences.dart",
+    "package:logoi/core/services/file_service.dart",
+    "package:logoi/core/services/ollama_service.dart",
+    "package:logoi/core/services/secure_storage.dart",
+    "package:logoi/features/project/repositories/project_repository.dart",
+    "package:logoi/shared/theme/app_theme.dart"
+  ]
+}

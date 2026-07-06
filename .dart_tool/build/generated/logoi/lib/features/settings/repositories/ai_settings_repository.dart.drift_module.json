@@ -1,0 +1,10 @@
+{
+  "elements": {},
+  "imports": [
+    "package:drift/drift.dart",
+    "package:logoi/core/database/daos/ai_dao.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/core/services/secure_storage.dart",
+    "package:logoi/core/utils/result.dart"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "elements": {},
+  "imports": [
+    "package:riverpod_annotation/riverpod_annotation.dart",
+    "package:logoi/features/project/providers/project_providers.dart",
+    "package:logoi/core/processing/embeddings.dart",
+    "package:logoi/core/processing/semantic_search.dart",
+    "package:logoi/core/processing/summary_service.dart",
+    "package:logoi/core/providers/ai_providers.dart",
+    "package:logoi/core/providers/core_providers.dart"
+  ]
+}

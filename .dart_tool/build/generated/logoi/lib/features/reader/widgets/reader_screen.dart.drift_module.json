@@ -1,0 +1,19 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:flutter/services.dart",
+    "package:flutter_riverpod/flutter_riverpod.dart",
+    "package:multi_split_view/multi_split_view.dart",
+    "package:logoi/core/providers/core_providers.dart",
+    "package:logoi/core/providers/processing_providers.dart",
+    "package:logoi/features/export/widgets/export_dialog.dart",
+    "package:logoi/features/project/providers/project_providers.dart",
+    "package:logoi/features/settings/widgets/settings_screen.dart",
+    "package:logoi/features/reader/providers/reader_providers.dart",
+    "package:logoi/features/reader/widgets/document_list_view.dart",
+    "package:logoi/features/reader/widgets/left_panel.dart",
+    "package:logoi/features/reader/widgets/pdf_view_panel.dart",
+    "package:logoi/features/reader/widgets/right_panel.dart"
+  ]
+}

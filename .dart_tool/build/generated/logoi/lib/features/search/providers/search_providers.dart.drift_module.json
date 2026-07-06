@@ -1,0 +1,10 @@
+{
+  "elements": {},
+  "imports": [
+    "package:riverpod_annotation/riverpod_annotation.dart",
+    "package:logoi/core/database/daos/search_dao.dart",
+    "package:logoi/core/processing/semantic_search.dart",
+    "package:logoi/core/providers/processing_providers.dart",
+    "package:logoi/features/project/providers/project_providers.dart"
+  ]
+}

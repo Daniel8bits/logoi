@@ -1,0 +1,12 @@
+{
+  "elements": {},
+  "imports": [
+    "package:drift/drift.dart",
+    "package:uuid/uuid.dart",
+    "package:logoi/core/database/daos/annotation_dao.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/core/utils/result.dart",
+    "package:logoi/features/reader/models/selection.dart",
+    "package:logoi/features/annotations/models/annotation_type.dart"
+  ]
+}

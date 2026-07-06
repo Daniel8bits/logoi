@@ -1,0 +1,11 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter_riverpod/legacy.dart",
+    "package:riverpod_annotation/riverpod_annotation.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/core/providers/ai_providers.dart",
+    "package:logoi/features/project/providers/project_providers.dart",
+    "package:logoi/features/concepts/repositories/concept_repository.dart"
+  ]
+}

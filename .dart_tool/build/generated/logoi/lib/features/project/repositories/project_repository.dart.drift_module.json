@@ -1,0 +1,12 @@
+{
+  "elements": {},
+  "imports": [
+    "package:drift/drift.dart",
+    "package:uuid/uuid.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/core/services/file_service.dart",
+    "package:logoi/core/utils/result.dart",
+    "package:logoi/features/project/models/project_settings.dart",
+    "package:logoi/features/project/models/project_summary.dart"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:flutter_riverpod/flutter_riverpod.dart",
+    "package:pdfrx/pdfrx.dart",
+    "package:logoi/shared/theme/app_theme.dart",
+    "package:logoi/shared/widgets/markdown_preview.dart",
+    "package:logoi/features/reader/providers/reader_providers.dart",
+    "package:logoi/features/reader/widgets/pdf_view_panel.dart",
+    "package:logoi/features/annotations/models/annotation_type.dart",
+    "package:logoi/features/annotations/providers/annotation_providers.dart",
+    "package:logoi/features/annotations/repositories/annotation_repository.dart",
+    "package:logoi/features/annotations/widgets/annotation_editor.dart"
+  ]
+}

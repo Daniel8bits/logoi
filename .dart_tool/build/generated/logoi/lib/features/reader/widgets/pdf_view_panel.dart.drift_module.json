@@ -1,0 +1,18 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:flutter/services.dart",
+    "package:flutter_riverpod/flutter_riverpod.dart",
+    "package:pdfrx/pdfrx.dart",
+    "package:logoi/features/annotations/widgets/annotation_editor.dart",
+    "package:logoi/features/chat/models/quick_mode.dart",
+    "package:logoi/features/chat/providers/chat_providers.dart",
+    "package:logoi/features/chat/widgets/json_mode_result_dialog.dart",
+    "package:logoi/features/concepts/providers/concept_providers.dart",
+    "package:logoi/features/concepts/widgets/cross_ref_panel.dart",
+    "package:logoi/features/reader/models/selection.dart",
+    "package:logoi/features/reader/providers/reader_providers.dart",
+    "package:logoi/features/reader/widgets/right_panel.dart"
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "elements": {
+    "LogoiDatabase": {
+      "id": {
+        "library_uri": "package:logoi/core/database/database.dart",
+        "name": "LogoiDatabase"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/database.dart",
+        "offset": 1236,
+        "name": "LogoiDatabase"
+      },
+      "references": [
+        {
+          "library_uri": "package:logoi/core/database/tables/project_tables.dart",
+          "name": "projects"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "documents"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "page_contents"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "paragraphs"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "paragraph_embeddings"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "document_structure"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "section_summaries"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+          "name": "annotations"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+          "name": "annotation_versions"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+          "name": "notebooks"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/knowledge_tables.dart",
+          "name": "concepts"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/knowledge_tables.dart",
+          "name": "concept_relations"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/knowledge_tables.dart",
+          "name": "cross_references"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/chat_tables.dart",
+          "name": "chat_sessions"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/chat_tables.dart",
+          "name": "chat_messages"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/ai_tables.dart",
+          "name": "ai_providers"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/ai_tables.dart",
+          "name": "ai_response_cache"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/ai_tables.dart",
+          "name": "api_usage_log"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "reading_sessions"
+        }
+      ],
+      "type": "database",
+      "tables": [
+        {
+          "library_uri": "package:logoi/core/database/tables/project_tables.dart",
+          "name": "projects"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "documents"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "page_contents"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "paragraphs"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "paragraph_embeddings"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "document_structure"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "section_summaries"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+          "name": "annotations"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+          "name": "annotation_versions"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+          "name": "notebooks"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/knowledge_tables.dart",
+          "name": "concepts"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/knowledge_tables.dart",
+          "name": "concept_relations"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/knowledge_tables.dart",
+          "name": "cross_references"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/chat_tables.dart",
+          "name": "chat_sessions"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/chat_tables.dart",
+          "name": "chat_messages"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/ai_tables.dart",
+          "name": "ai_providers"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/ai_tables.dart",
+          "name": "ai_response_cache"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/ai_tables.dart",
+          "name": "api_usage_log"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "reading_sessions"
+        }
+      ],
+      "views": [],
+      "includes": [],
+      "queries": [],
+      "schema_version": 1,
+      "daos": [
+        {
+          "library_uri": "package:logoi/core/database/daos/project_dao.dart",
+          "name": "ProjectDao"
+        },
+        {
+          "library_uri": "package:logoi/core/database/daos/document_dao.dart",
+          "name": "DocumentDao"
+        },
+        {
+          "library_uri": "package:logoi/core/database/daos/annotation_dao.dart",
+          "name": "AnnotationDao"
+        },
+        {
+          "library_uri": "package:logoi/core/database/daos/chat_dao.dart",
+          "name": "ChatDao"
+        },
+        {
+          "library_uri": "package:logoi/core/database/daos/concept_dao.dart",
+          "name": "ConceptDao"
+        },
+        {
+          "library_uri": "package:logoi/core/database/daos/ai_dao.dart",
+          "name": "AiDao"
+        },
+        {
+          "library_uri": "package:logoi/core/database/daos/search_dao.dart",
+          "name": "SearchDao"
+        }
+      ],
+      "has_constructor_arg": true
+    }
+  },
+  "imports": [
+    "package:drift/drift.dart",
+    "package:drift_flutter/drift_flutter.dart",
+    "package:logoi/core/database/daos/ai_dao.dart",
+    "package:logoi/core/database/daos/annotation_dao.dart",
+    "package:logoi/core/database/daos/chat_dao.dart",
+    "package:logoi/core/database/daos/concept_dao.dart",
+    "package:logoi/core/database/daos/document_dao.dart",
+    "package:logoi/core/database/daos/project_dao.dart",
+    "package:logoi/core/database/daos/search_dao.dart",
+    "package:logoi/core/database/tables/ai_tables.dart",
+    "package:logoi/core/database/tables/annotation_tables.dart",
+    "package:logoi/core/database/tables/chat_tables.dart",
+    "package:logoi/core/database/tables/document_tables.dart",
+    "package:logoi/core/database/tables/knowledge_tables.dart",
+    "package:logoi/core/database/tables/project_tables.dart"
+  ]
+}

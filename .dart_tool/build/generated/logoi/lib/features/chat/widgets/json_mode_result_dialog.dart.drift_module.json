@@ -1,0 +1,12 @@
+{
+  "elements": {},
+  "imports": [
+    "package:file_picker/file_picker.dart",
+    "package:flutter/material.dart",
+    "package:flutter_riverpod/flutter_riverpod.dart",
+    "package:logoi/core/ai/response_parser.dart",
+    "package:logoi/features/export/services/export_service.dart",
+    "package:logoi/features/chat/models/quick_mode.dart",
+    "package:logoi/features/chat/providers/chat_providers.dart"
+  ]
+}

@@ -1,0 +1,109 @@
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(projectList)
+final projectListProvider = ProjectListProvider._();
+
+final class ProjectListProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<ProjectSummary>>,
+          List<ProjectSummary>,
+          FutureOr<List<ProjectSummary>>
+        >
+    with
+        $FutureModifier<List<ProjectSummary>>,
+        $FutureProvider<List<ProjectSummary>> {
+  ProjectListProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'projectListProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$projectListHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<List<ProjectSummary>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<ProjectSummary>> create(Ref ref) {
+    return projectList(ref);
+  }
+}
+
+String _$projectListHash() => r'1fbcd56386c21f6786f3e77977b2717c15a0d27c';
+
+/// Holds the open project (docs/02_ARCHITECTURE.md — shared providers are
+/// the only cross-feature communication channel).
+
+@ProviderFor(CurrentProject)
+final currentProjectProvider = CurrentProjectProvider._();
+
+/// Holds the open project (docs/02_ARCHITECTURE.md — shared providers are
+/// the only cross-feature communication channel).
+final class CurrentProjectProvider
+    extends $NotifierProvider<CurrentProject, ProjectContext?> {
+  /// Holds the open project (docs/02_ARCHITECTURE.md — shared providers are
+  /// the only cross-feature communication channel).
+  CurrentProjectProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'currentProjectProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$currentProjectHash();
+
+  @$internal
+  @override
+  CurrentProject create() => CurrentProject();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(ProjectContext? value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<ProjectContext?>(value),
+    );
+  }
+}
+
+String _$currentProjectHash() => r'77c322f567ea040948bacac55b1e4d35f08c9d8e';
+
+/// Holds the open project (docs/02_ARCHITECTURE.md — shared providers are
+/// the only cross-feature communication channel).
+
+abstract class _$CurrentProject extends $Notifier<ProjectContext?> {
+  ProjectContext? build();
+  @$mustCallSuper
+  @override
+  WhenComplete runBuild() {
+    final ref = this.ref as $Ref<ProjectContext?, ProjectContext?>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<ProjectContext?, ProjectContext?>,
+              ProjectContext?,
+              Object?,
+              Object?
+            >;
+    return element.handleCreate(ref, build);
+  }
+}

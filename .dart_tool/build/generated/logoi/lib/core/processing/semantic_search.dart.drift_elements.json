@@ -1,0 +1,1 @@
+{"valid_import":true,"imports":[{"uri":"package:logoi/core/database/daos/document_dao.dart","transitive":false},{"uri":"package:logoi/core/database/daos/search_dao.dart","transitive":false},{"uri":"package:logoi/core/services/ollama_service.dart","transitive":false},{"uri":"package:logoi/core/processing/embeddings.dart","transitive":false}],"elements":[]}

@@ -1,0 +1,68 @@
+{
+  "elements": {
+    "ConceptDao": {
+      "id": {
+        "library_uri": "package:logoi/core/database/daos/concept_dao.dart",
+        "name": "ConceptDao"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/daos/concept_dao.dart",
+        "offset": 214,
+        "name": "ConceptDao"
+      },
+      "references": [
+        {
+          "library_uri": "package:logoi/core/database/tables/knowledge_tables.dart",
+          "name": "concepts"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/knowledge_tables.dart",
+          "name": "concept_relations"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/knowledge_tables.dart",
+          "name": "cross_references"
+        }
+      ],
+      "type": "dao",
+      "tables": [
+        {
+          "library_uri": "package:logoi/core/database/tables/knowledge_tables.dart",
+          "name": "concepts"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/knowledge_tables.dart",
+          "name": "concept_relations"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/knowledge_tables.dart",
+          "name": "cross_references"
+        }
+      ],
+      "views": [],
+      "includes": [],
+      "queries": [],
+      "dart_type": {
+        "elements": [
+          {
+            "lexeme": "ConceptDao",
+            "import_uri": "package:logoi/core/database/daos/concept_dao.dart"
+          }
+        ]
+      },
+      "database": {
+        "elements": [
+          {
+            "lexeme": "LogoiDatabase",
+            "import_uri": "package:logoi/core/database/database.dart"
+          }
+        ]
+      }
+    }
+  },
+  "imports": [
+    "package:drift/drift.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/core/database/tables/knowledge_tables.dart"
+  ]
+}

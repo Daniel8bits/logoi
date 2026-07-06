@@ -1,0 +1,9 @@
+{
+  "elements": {},
+  "imports": [
+    "package:riverpod_annotation/riverpod_annotation.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/core/providers/ai_providers.dart",
+    "package:logoi/core/providers/core_providers.dart"
+  ]
+}

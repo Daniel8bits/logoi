@@ -1,0 +1,206 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'search_providers.dart';
+
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+/// FTS5 search in the current project (docs/08_ROADMAP.md §1.7).
+
+@ProviderFor(ftsSearch)
+final ftsSearchProvider = FtsSearchFamily._();
+
+/// FTS5 search in the current project (docs/08_ROADMAP.md §1.7).
+
+final class FtsSearchProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<FtsSearchHit>>,
+          List<FtsSearchHit>,
+          FutureOr<List<FtsSearchHit>>
+        >
+    with
+        $FutureModifier<List<FtsSearchHit>>,
+        $FutureProvider<List<FtsSearchHit>> {
+  /// FTS5 search in the current project (docs/08_ROADMAP.md §1.7).
+  FtsSearchProvider._({
+    required FtsSearchFamily super.from,
+    required ({String query, String? documentId}) super.argument,
+  }) : super(
+         retry: null,
+         name: r'ftsSearchProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$ftsSearchHash();
+
+  @override
+  String toString() {
+    return r'ftsSearchProvider'
+        ''
+        '$argument';
+  }
+
+  @$internal
+  @override
+  $FutureProviderElement<List<FtsSearchHit>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<FtsSearchHit>> create(Ref ref) {
+    final argument = this.argument as ({String query, String? documentId});
+    return ftsSearch(
+      ref,
+      query: argument.query,
+      documentId: argument.documentId,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FtsSearchProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
+}
+
+String _$ftsSearchHash() => r'c403ccc19a003286040380652c9de408e4019482';
+
+/// FTS5 search in the current project (docs/08_ROADMAP.md §1.7).
+
+final class FtsSearchFamily extends $Family
+    with
+        $FunctionalFamilyOverride<
+          FutureOr<List<FtsSearchHit>>,
+          ({String query, String? documentId})
+        > {
+  FtsSearchFamily._()
+    : super(
+        retry: null,
+        name: r'ftsSearchProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  /// FTS5 search in the current project (docs/08_ROADMAP.md §1.7).
+
+  FtsSearchProvider call({required String query, String? documentId}) =>
+      FtsSearchProvider._(
+        argument: (query: query, documentId: documentId),
+        from: this,
+      );
+
+  @override
+  String toString() => r'ftsSearchProvider';
+}
+
+/// Hybrid FTS5 + semantic search (docs/05_PROCESSING.md §6.4). Degrades
+/// to pure lexical when Ollama is offline or embeddings are missing.
+
+@ProviderFor(hybridSearch)
+final hybridSearchProvider = HybridSearchFamily._();
+
+/// Hybrid FTS5 + semantic search (docs/05_PROCESSING.md §6.4). Degrades
+/// to pure lexical when Ollama is offline or embeddings are missing.
+
+final class HybridSearchProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<HybridHit>>,
+          List<HybridHit>,
+          FutureOr<List<HybridHit>>
+        >
+    with $FutureModifier<List<HybridHit>>, $FutureProvider<List<HybridHit>> {
+  /// Hybrid FTS5 + semantic search (docs/05_PROCESSING.md §6.4). Degrades
+  /// to pure lexical when Ollama is offline or embeddings are missing.
+  HybridSearchProvider._({
+    required HybridSearchFamily super.from,
+    required ({String query, String? documentId}) super.argument,
+  }) : super(
+         retry: null,
+         name: r'hybridSearchProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$hybridSearchHash();
+
+  @override
+  String toString() {
+    return r'hybridSearchProvider'
+        ''
+        '$argument';
+  }
+
+  @$internal
+  @override
+  $FutureProviderElement<List<HybridHit>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<HybridHit>> create(Ref ref) {
+    final argument = this.argument as ({String query, String? documentId});
+    return hybridSearch(
+      ref,
+      query: argument.query,
+      documentId: argument.documentId,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is HybridSearchProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
+}
+
+String _$hybridSearchHash() => r'6d0c0e79d138944f444588b92254d33a96283488';
+
+/// Hybrid FTS5 + semantic search (docs/05_PROCESSING.md §6.4). Degrades
+/// to pure lexical when Ollama is offline or embeddings are missing.
+
+final class HybridSearchFamily extends $Family
+    with
+        $FunctionalFamilyOverride<
+          FutureOr<List<HybridHit>>,
+          ({String query, String? documentId})
+        > {
+  HybridSearchFamily._()
+    : super(
+        retry: null,
+        name: r'hybridSearchProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  /// Hybrid FTS5 + semantic search (docs/05_PROCESSING.md §6.4). Degrades
+  /// to pure lexical when Ollama is offline or embeddings are missing.
+
+  HybridSearchProvider call({required String query, String? documentId}) =>
+      HybridSearchProvider._(
+        argument: (query: query, documentId: documentId),
+        from: this,
+      );
+
+  @override
+  String toString() => r'hybridSearchProvider';
+}

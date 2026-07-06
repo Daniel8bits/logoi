@@ -1,0 +1,7 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:logoi/shared/widgets/markdown_preview.dart"
+  ]
+}

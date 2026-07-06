@@ -1,0 +1,660 @@
+{
+  "elements": {
+    "annotations": {
+      "id": {
+        "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+        "name": "annotations"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+        "offset": 169,
+        "name": "Annotations"
+      },
+      "references": [
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "documents"
+        }
+      ],
+      "type": "table",
+      "columns": [
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "id",
+          "nameInDart": "id",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 214,
+            "name": "id"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "document_id",
+          "nameInDart": "documentId",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 247,
+            "name": "documentId"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [
+            {
+              "type": "foreign_key",
+              "column": {
+                "table": {
+                  "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+                  "name": "documents"
+                },
+                "name": "id"
+              },
+              "onUpdate": null,
+              "onDelete": "cascade",
+              "initiallyDeferred": false
+            }
+          ],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": false,
+          "nameInSql": "page_number",
+          "nameInDart": "pageNumber",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 349,
+            "name": "pageNumber"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "type",
+          "nameInDart": "type",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 447,
+            "name": "type"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// 'highlight' | 'note' | 'bookmark' | 'question'",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": true,
+          "nameInSql": "color",
+          "nameInDart": "color",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 510,
+            "name": "color"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// Hex color: '#FFEB3B'",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": true,
+          "nameInSql": "selected_text",
+          "nameInDart": "selectedText",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 557,
+            "name": "selectedText"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": true,
+          "nameInSql": "content",
+          "nameInDart": "content",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 636,
+            "name": "content"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// Markdown content.",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "position",
+          "nameInDart": "position",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 750,
+            "name": "position"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// JSON: SelectionPosition { startOffset, endOffset, rects }",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": true,
+          "nameInSql": "tags",
+          "nameInDart": "tags",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 825,
+            "name": "tags"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// JSON array: [\"tag1\", \"tag2\"]",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": false,
+          "nameInSql": "created_at",
+          "nameInDart": "createdAt",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 870,
+            "name": "createdAt"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": false,
+          "nameInSql": "updated_at",
+          "nameInDart": "updatedAt",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 912,
+            "name": "updatedAt"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        }
+      ],
+      "existing_data_class": null,
+      "table_constraints": [
+        {
+          "type": "primary_key",
+          "columns": [
+            "id"
+          ]
+        }
+      ],
+      "custom_parent_class": null,
+      "interfaces_for_row_class": [],
+      "fixed_entity_info_name": null,
+      "base_dart_name": "Annotations",
+      "row_class_name": "AnnotationRow",
+      "companion_class_name": null,
+      "without_rowid": false,
+      "strict": false,
+      "write_default_constraints": true,
+      "custom_constraints": [],
+      "attached_indices": []
+    },
+    "annotation_versions": {
+      "id": {
+        "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+        "name": "annotation_versions"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+        "offset": 1070,
+        "name": "AnnotationVersions"
+      },
+      "references": [
+        {
+          "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+          "name": "annotations"
+        }
+      ],
+      "type": "table",
+      "columns": [
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "id",
+          "nameInDart": "id",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 1122,
+            "name": "id"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "annotation_id",
+          "nameInDart": "annotationId",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 1155,
+            "name": "annotationId"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [
+            {
+              "type": "foreign_key",
+              "column": {
+                "table": {
+                  "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+                  "name": "annotations"
+                },
+                "name": "id"
+              },
+              "onUpdate": null,
+              "onDelete": "cascade",
+              "initiallyDeferred": false
+            }
+          ],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "content",
+          "nameInDart": "content",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 1262,
+            "name": "content"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": false,
+          "nameInSql": "changed_at",
+          "nameInDart": "changedAt",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 1299,
+            "name": "changedAt"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        }
+      ],
+      "existing_data_class": null,
+      "table_constraints": [
+        {
+          "type": "primary_key",
+          "columns": [
+            "id"
+          ]
+        }
+      ],
+      "custom_parent_class": null,
+      "interfaces_for_row_class": [],
+      "fixed_entity_info_name": null,
+      "base_dart_name": "AnnotationVersions",
+      "row_class_name": "AnnotationVersionRow",
+      "companion_class_name": null,
+      "without_rowid": false,
+      "strict": false,
+      "write_default_constraints": true,
+      "custom_constraints": [],
+      "attached_indices": []
+    },
+    "notebooks": {
+      "id": {
+        "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+        "name": "notebooks"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+        "offset": 1449,
+        "name": "Notebooks"
+      },
+      "references": [
+        {
+          "library_uri": "package:logoi/core/database/tables/project_tables.dart",
+          "name": "projects"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "documents"
+        }
+      ],
+      "type": "table",
+      "columns": [
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "id",
+          "nameInDart": "id",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 1492,
+            "name": "id"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "project_id",
+          "nameInDart": "projectId",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 1525,
+            "name": "projectId"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [
+            {
+              "type": "foreign_key",
+              "column": {
+                "table": {
+                  "library_uri": "package:logoi/core/database/tables/project_tables.dart",
+                  "name": "projects"
+                },
+                "name": "id"
+              },
+              "onUpdate": null,
+              "onDelete": "cascade",
+              "initiallyDeferred": false
+            }
+          ],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": true,
+          "nameInSql": "document_id",
+          "nameInDart": "documentId",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 1664,
+            "name": "documentId"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// Null = project-level notebook.",
+          "constraints": [
+            {
+              "type": "foreign_key",
+              "column": {
+                "table": {
+                  "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+                  "name": "documents"
+                },
+                "name": "id"
+              },
+              "onUpdate": null,
+              "onDelete": "setNull",
+              "initiallyDeferred": false
+            }
+          ],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "title",
+          "nameInDart": "title",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 1778,
+            "name": "title"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "content",
+          "nameInDart": "content",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 1814,
+            "name": "content"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": {
+            "elements": [
+              "const ",
+              {
+                "lexeme": "Constant",
+                "import_uri": "package:drift/src/runtime/query_builder/query_builder.dart"
+              },
+              "('')"
+            ]
+          },
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": false,
+          "nameInSql": "created_at",
+          "nameInDart": "createdAt",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 1883,
+            "name": "createdAt"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": false,
+          "nameInSql": "updated_at",
+          "nameInDart": "updatedAt",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+            "offset": 1925,
+            "name": "updatedAt"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        }
+      ],
+      "existing_data_class": null,
+      "table_constraints": [
+        {
+          "type": "primary_key",
+          "columns": [
+            "id"
+          ]
+        }
+      ],
+      "custom_parent_class": null,
+      "interfaces_for_row_class": [],
+      "fixed_entity_info_name": null,
+      "base_dart_name": "Notebooks",
+      "row_class_name": "NotebookRow",
+      "companion_class_name": null,
+      "without_rowid": false,
+      "strict": false,
+      "write_default_constraints": true,
+      "custom_constraints": [],
+      "attached_indices": []
+    }
+  },
+  "imports": [
+    "package:drift/drift.dart",
+    "package:logoi/core/database/tables/document_tables.dart",
+    "package:logoi/core/database/tables/project_tables.dart"
+  ]
+}

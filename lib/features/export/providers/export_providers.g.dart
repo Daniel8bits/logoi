@@ -1,0 +1,49 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'export_providers.dart';
+
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(exportService)
+final exportServiceProvider = ExportServiceProvider._();
+
+final class ExportServiceProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<ExportService?>,
+          ExportService?,
+          FutureOr<ExportService?>
+        >
+    with $FutureModifier<ExportService?>, $FutureProvider<ExportService?> {
+  ExportServiceProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'exportServiceProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$exportServiceHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<ExportService?> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<ExportService?> create(Ref ref) {
+    return exportService(ref);
+  }
+}
+
+String _$exportServiceHash() => r'a12bc73f38658e450068714d0ad8a69a38876700';

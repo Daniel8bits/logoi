@@ -1,0 +1,12 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:flutter_riverpod/flutter_riverpod.dart",
+    "package:pdfrx/pdfrx.dart",
+    "package:shared_preferences/shared_preferences.dart",
+    "package:window_manager/window_manager.dart",
+    "package:logoi/app.dart",
+    "package:logoi/core/providers/core_providers.dart"
+  ]
+}

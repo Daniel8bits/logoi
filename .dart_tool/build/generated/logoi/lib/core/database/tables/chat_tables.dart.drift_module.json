@@ -1,0 +1,438 @@
+{
+  "elements": {
+    "chat_sessions": {
+      "id": {
+        "library_uri": "package:logoi/core/database/tables/chat_tables.dart",
+        "name": "chat_sessions"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/tables/chat_tables.dart",
+        "offset": 171,
+        "name": "ChatSessions"
+      },
+      "references": [
+        {
+          "library_uri": "package:logoi/core/database/tables/project_tables.dart",
+          "name": "projects"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "documents"
+        }
+      ],
+      "type": "table",
+      "columns": [
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "id",
+          "nameInDart": "id",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/chat_tables.dart",
+            "offset": 217,
+            "name": "id"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "project_id",
+          "nameInDart": "projectId",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/chat_tables.dart",
+            "offset": 250,
+            "name": "projectId"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [
+            {
+              "type": "foreign_key",
+              "column": {
+                "table": {
+                  "library_uri": "package:logoi/core/database/tables/project_tables.dart",
+                  "name": "projects"
+                },
+                "name": "id"
+              },
+              "onUpdate": null,
+              "onDelete": "cascade",
+              "initiallyDeferred": false
+            }
+          ],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": true,
+          "nameInSql": "document_id",
+          "nameInDart": "documentId",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/chat_tables.dart",
+            "offset": 388,
+            "name": "documentId"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// Null = project-level session.",
+          "constraints": [
+            {
+              "type": "foreign_key",
+              "column": {
+                "table": {
+                  "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+                  "name": "documents"
+                },
+                "name": "id"
+              },
+              "onUpdate": null,
+              "onDelete": "setNull",
+              "initiallyDeferred": false
+            }
+          ],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": true,
+          "nameInSql": "title",
+          "nameInDart": "title",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/chat_tables.dart",
+            "offset": 502,
+            "name": "title"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "provider",
+          "nameInDart": "provider",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/chat_tables.dart",
+            "offset": 549,
+            "name": "provider"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "model",
+          "nameInDart": "model",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/chat_tables.dart",
+            "offset": 588,
+            "name": "model"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": false,
+          "nameInSql": "created_at",
+          "nameInDart": "createdAt",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/chat_tables.dart",
+            "offset": 623,
+            "name": "createdAt"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        }
+      ],
+      "existing_data_class": null,
+      "table_constraints": [
+        {
+          "type": "primary_key",
+          "columns": [
+            "id"
+          ]
+        }
+      ],
+      "custom_parent_class": null,
+      "interfaces_for_row_class": [],
+      "fixed_entity_info_name": null,
+      "base_dart_name": "ChatSessions",
+      "row_class_name": "ChatSessionRow",
+      "companion_class_name": null,
+      "without_rowid": false,
+      "strict": false,
+      "write_default_constraints": true,
+      "custom_constraints": [],
+      "attached_indices": []
+    },
+    "chat_messages": {
+      "id": {
+        "library_uri": "package:logoi/core/database/tables/chat_tables.dart",
+        "name": "chat_messages"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/tables/chat_tables.dart",
+        "offset": 776,
+        "name": "ChatMessages"
+      },
+      "references": [
+        {
+          "library_uri": "package:logoi/core/database/tables/chat_tables.dart",
+          "name": "chat_sessions"
+        }
+      ],
+      "type": "table",
+      "columns": [
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "id",
+          "nameInDart": "id",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/chat_tables.dart",
+            "offset": 822,
+            "name": "id"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "session_id",
+          "nameInDart": "sessionId",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/chat_tables.dart",
+            "offset": 855,
+            "name": "sessionId"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [
+            {
+              "type": "foreign_key",
+              "column": {
+                "table": {
+                  "library_uri": "package:logoi/core/database/tables/chat_tables.dart",
+                  "name": "chat_sessions"
+                },
+                "name": "id"
+              },
+              "onUpdate": null,
+              "onDelete": "cascade",
+              "initiallyDeferred": false
+            }
+          ],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "role",
+          "nameInDart": "role",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/chat_tables.dart",
+            "offset": 999,
+            "name": "role"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// 'user' | 'assistant' | 'system'",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "content",
+          "nameInDart": "content",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/chat_tables.dart",
+            "offset": 1034,
+            "name": "content"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": true,
+          "nameInSql": "context",
+          "nameInDart": "context",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/chat_tables.dart",
+            "offset": 1130,
+            "name": "context"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// JSON: { selectedText, pageNumber, selectionLevel }",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "bool"
+          },
+          "nullable": false,
+          "nameInSql": "is_compressed",
+          "nameInDart": "isCompressed",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/chat_tables.dart",
+            "offset": 1245,
+            "name": "isCompressed"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": {
+            "elements": [
+              "const ",
+              {
+                "lexeme": "Constant",
+                "import_uri": "package:drift/src/runtime/query_builder/query_builder.dart"
+              },
+              "(false)"
+            ]
+          },
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// True when this row is a compressed summary of older turns.",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": false,
+          "nameInSql": "created_at",
+          "nameInDart": "createdAt",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/chat_tables.dart",
+            "offset": 1325,
+            "name": "createdAt"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        }
+      ],
+      "existing_data_class": null,
+      "table_constraints": [
+        {
+          "type": "primary_key",
+          "columns": [
+            "id"
+          ]
+        }
+      ],
+      "custom_parent_class": null,
+      "interfaces_for_row_class": [],
+      "fixed_entity_info_name": null,
+      "base_dart_name": "ChatMessages",
+      "row_class_name": "ChatMessageRow",
+      "companion_class_name": null,
+      "without_rowid": false,
+      "strict": false,
+      "write_default_constraints": true,
+      "custom_constraints": [],
+      "attached_indices": []
+    }
+  },
+  "imports": [
+    "package:drift/drift.dart",
+    "package:logoi/core/database/tables/document_tables.dart",
+    "package:logoi/core/database/tables/project_tables.dart"
+  ]
+}

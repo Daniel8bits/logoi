@@ -1,0 +1,15 @@
+{
+  "elements": {},
+  "imports": [
+    "package:drift/drift.dart",
+    "package:uuid/uuid.dart",
+    "package:logoi/core/cache/ai_cache.dart",
+    "package:logoi/core/database/daos/ai_dao.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/core/utils/result.dart",
+    "package:logoi/core/ai/errors.dart",
+    "package:logoi/core/ai/models.dart",
+    "package:logoi/core/ai/prompts/prompts.dart",
+    "package:logoi/core/ai/provider.dart"
+  ]
+}

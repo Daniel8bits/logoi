@@ -1,0 +1,41 @@
+{
+  "elements": {
+    "SearchDao": {
+      "id": {
+        "library_uri": "package:logoi/core/database/daos/search_dao.dart",
+        "name": "SearchDao"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/daos/search_dao.dart",
+        "offset": 434,
+        "name": "SearchDao"
+      },
+      "references": [],
+      "type": "dao",
+      "tables": [],
+      "views": [],
+      "includes": [],
+      "queries": [],
+      "dart_type": {
+        "elements": [
+          {
+            "lexeme": "SearchDao",
+            "import_uri": "package:logoi/core/database/daos/search_dao.dart"
+          }
+        ]
+      },
+      "database": {
+        "elements": [
+          {
+            "lexeme": "LogoiDatabase",
+            "import_uri": "package:logoi/core/database/database.dart"
+          }
+        ]
+      }
+    }
+  },
+  "imports": [
+    "package:drift/drift.dart",
+    "package:logoi/core/database/database.dart"
+  ]
+}

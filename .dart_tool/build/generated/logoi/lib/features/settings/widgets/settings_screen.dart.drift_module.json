@@ -1,0 +1,12 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:flutter_riverpod/flutter_riverpod.dart",
+    "package:logoi/core/providers/ai_providers.dart",
+    "package:logoi/core/providers/core_providers.dart",
+    "package:logoi/shared/theme/app_theme.dart",
+    "package:logoi/features/settings/providers/settings_providers.dart",
+    "package:logoi/features/settings/repositories/ai_settings_repository.dart"
+  ]
+}

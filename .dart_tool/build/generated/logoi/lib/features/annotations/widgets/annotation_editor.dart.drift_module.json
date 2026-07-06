@@ -1,0 +1,14 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:flutter_riverpod/flutter_riverpod.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/shared/theme/app_theme.dart",
+    "package:logoi/shared/widgets/markdown_editor.dart",
+    "package:logoi/features/reader/models/selection.dart",
+    "package:logoi/features/annotations/models/annotation_type.dart",
+    "package:logoi/features/annotations/providers/annotation_providers.dart",
+    "package:logoi/features/annotations/repositories/annotation_repository.dart"
+  ]
+}

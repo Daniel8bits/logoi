@@ -1,0 +1,10 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:flutter_riverpod/flutter_riverpod.dart",
+    "package:logoi/features/reader/providers/reader_providers.dart",
+    "package:logoi/features/reader/widgets/pdf_view_panel.dart",
+    "package:logoi/features/search/providers/search_providers.dart"
+  ]
+}

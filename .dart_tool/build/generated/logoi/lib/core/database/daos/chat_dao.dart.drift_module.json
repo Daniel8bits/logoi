@@ -1,0 +1,60 @@
+{
+  "elements": {
+    "ChatDao": {
+      "id": {
+        "library_uri": "package:logoi/core/database/daos/chat_dao.dart",
+        "name": "ChatDao"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/daos/chat_dao.dart",
+        "offset": 189,
+        "name": "ChatDao"
+      },
+      "references": [
+        {
+          "library_uri": "package:logoi/core/database/tables/chat_tables.dart",
+          "name": "chat_sessions"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/chat_tables.dart",
+          "name": "chat_messages"
+        }
+      ],
+      "type": "dao",
+      "tables": [
+        {
+          "library_uri": "package:logoi/core/database/tables/chat_tables.dart",
+          "name": "chat_sessions"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/chat_tables.dart",
+          "name": "chat_messages"
+        }
+      ],
+      "views": [],
+      "includes": [],
+      "queries": [],
+      "dart_type": {
+        "elements": [
+          {
+            "lexeme": "ChatDao",
+            "import_uri": "package:logoi/core/database/daos/chat_dao.dart"
+          }
+        ]
+      },
+      "database": {
+        "elements": [
+          {
+            "lexeme": "LogoiDatabase",
+            "import_uri": "package:logoi/core/database/database.dart"
+          }
+        ]
+      }
+    }
+  },
+  "imports": [
+    "package:drift/drift.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/core/database/tables/chat_tables.dart"
+  ]
+}

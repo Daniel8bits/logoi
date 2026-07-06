@@ -1,0 +1,8 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/features/concepts/repositories/concept_repository.dart"
+  ]
+}

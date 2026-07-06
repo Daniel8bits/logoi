@@ -1,0 +1,18 @@
+{
+  "elements": {},
+  "imports": [
+    "package:riverpod_annotation/riverpod_annotation.dart",
+    "package:logoi/features/project/providers/project_providers.dart",
+    "package:logoi/features/settings/repositories/ai_settings_repository.dart",
+    "package:logoi/core/ai/errors.dart",
+    "package:logoi/core/ai/provider.dart",
+    "package:logoi/core/ai/providers/direct_anthropic_provider.dart",
+    "package:logoi/core/ai/providers/direct_openai_provider.dart",
+    "package:logoi/core/ai/providers/ollama_provider.dart",
+    "package:logoi/core/ai/providers/openrouter_provider.dart",
+    "package:logoi/core/ai/router.dart",
+    "package:logoi/core/cache/ai_cache.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/core/providers/core_providers.dart"
+  ]
+}

@@ -1,0 +1,337 @@
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(sharedPreferences)
+final sharedPreferencesProvider = SharedPreferencesProvider._();
+
+final class SharedPreferencesProvider
+    extends
+        $FunctionalProvider<
+          SharedPreferences,
+          SharedPreferences,
+          SharedPreferences
+        >
+    with $Provider<SharedPreferences> {
+  SharedPreferencesProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'sharedPreferencesProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$sharedPreferencesHash();
+
+  @$internal
+  @override
+  $ProviderElement<SharedPreferences> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  SharedPreferences create(Ref ref) {
+    return sharedPreferences(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(SharedPreferences value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<SharedPreferences>(value),
+    );
+  }
+}
+
+String _$sharedPreferencesHash() => r'4e8a47344ef19253c1d01e39006a19b5306009d4';
+
+@ProviderFor(fileService)
+final fileServiceProvider = FileServiceProvider._();
+
+final class FileServiceProvider
+    extends $FunctionalProvider<FileService, FileService, FileService>
+    with $Provider<FileService> {
+  FileServiceProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'fileServiceProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$fileServiceHash();
+
+  @$internal
+  @override
+  $ProviderElement<FileService> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  FileService create(Ref ref) {
+    return fileService(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(FileService value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<FileService>(value),
+    );
+  }
+}
+
+String _$fileServiceHash() => r'2488cec7a9d9f60e3a6e8754e727acdab5618406';
+
+@ProviderFor(secureStorage)
+final secureStorageProvider = SecureStorageProvider._();
+
+final class SecureStorageProvider
+    extends
+        $FunctionalProvider<
+          SecureStorageService,
+          SecureStorageService,
+          SecureStorageService
+        >
+    with $Provider<SecureStorageService> {
+  SecureStorageProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'secureStorageProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$secureStorageHash();
+
+  @$internal
+  @override
+  $ProviderElement<SecureStorageService> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  SecureStorageService create(Ref ref) {
+    return secureStorage(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(SecureStorageService value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<SecureStorageService>(value),
+    );
+  }
+}
+
+String _$secureStorageHash() => r'89f21a25a27c36c6b6f54930999ef4f46b858309';
+
+@ProviderFor(ollamaService)
+final ollamaServiceProvider = OllamaServiceProvider._();
+
+final class OllamaServiceProvider
+    extends $FunctionalProvider<OllamaService, OllamaService, OllamaService>
+    with $Provider<OllamaService> {
+  OllamaServiceProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'ollamaServiceProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$ollamaServiceHash();
+
+  @$internal
+  @override
+  $ProviderElement<OllamaService> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  OllamaService create(Ref ref) {
+    return ollamaService(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(OllamaService value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<OllamaService>(value),
+    );
+  }
+}
+
+String _$ollamaServiceHash() => r'4bd1fcbdd9afaec94ff972bc96ed72350a6f2ca4';
+
+@ProviderFor(projectRepository)
+final projectRepositoryProvider = ProjectRepositoryProvider._();
+
+final class ProjectRepositoryProvider
+    extends
+        $FunctionalProvider<
+          ProjectRepository,
+          ProjectRepository,
+          ProjectRepository
+        >
+    with $Provider<ProjectRepository> {
+  ProjectRepositoryProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'projectRepositoryProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$projectRepositoryHash();
+
+  @$internal
+  @override
+  $ProviderElement<ProjectRepository> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  ProjectRepository create(Ref ref) {
+    return projectRepository(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(ProjectRepository value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<ProjectRepository>(value),
+    );
+  }
+}
+
+String _$projectRepositoryHash() => r'9f0d2210ff177fc59ff65308bdff42884e417bb5';
+
+/// Global theme selection persisted in SharedPreferences.
+
+@ProviderFor(ThemeController)
+final themeControllerProvider = ThemeControllerProvider._();
+
+/// Global theme selection persisted in SharedPreferences.
+final class ThemeControllerProvider
+    extends $NotifierProvider<ThemeController, LogoiThemeMode> {
+  /// Global theme selection persisted in SharedPreferences.
+  ThemeControllerProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'themeControllerProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$themeControllerHash();
+
+  @$internal
+  @override
+  ThemeController create() => ThemeController();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(LogoiThemeMode value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<LogoiThemeMode>(value),
+    );
+  }
+}
+
+String _$themeControllerHash() => r'8e094901b16ee9c6309e566a7f7b3fa55fd029d0';
+
+/// Global theme selection persisted in SharedPreferences.
+
+abstract class _$ThemeController extends $Notifier<LogoiThemeMode> {
+  LogoiThemeMode build();
+  @$mustCallSuper
+  @override
+  WhenComplete runBuild() {
+    final ref = this.ref as $Ref<LogoiThemeMode, LogoiThemeMode>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<LogoiThemeMode, LogoiThemeMode>,
+              LogoiThemeMode,
+              Object?,
+              Object?
+            >;
+    return element.handleCreate(ref, build);
+  }
+}
+
+/// Ollama availability, checked on startup and refreshable.
+
+@ProviderFor(OllamaStatus)
+final ollamaStatusProvider = OllamaStatusProvider._();
+
+/// Ollama availability, checked on startup and refreshable.
+final class OllamaStatusProvider
+    extends $AsyncNotifierProvider<OllamaStatus, bool> {
+  /// Ollama availability, checked on startup and refreshable.
+  OllamaStatusProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'ollamaStatusProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$ollamaStatusHash();
+
+  @$internal
+  @override
+  OllamaStatus create() => OllamaStatus();
+}
+
+String _$ollamaStatusHash() => r'0e2d8822af2c11ec46dcd9caf9699ff10f907423';
+
+/// Ollama availability, checked on startup and refreshable.
+
+abstract class _$OllamaStatus extends $AsyncNotifier<bool> {
+  FutureOr<bool> build();
+  @$mustCallSuper
+  @override
+  WhenComplete runBuild() {
+    final ref = this.ref as $Ref<AsyncValue<bool>, bool>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<AsyncValue<bool>, bool>,
+              AsyncValue<bool>,
+              Object?,
+              Object?
+            >;
+    return element.handleCreate(ref, build);
+  }
+}

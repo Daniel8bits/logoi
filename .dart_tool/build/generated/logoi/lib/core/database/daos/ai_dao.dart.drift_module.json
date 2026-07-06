@@ -1,0 +1,68 @@
+{
+  "elements": {
+    "AiDao": {
+      "id": {
+        "library_uri": "package:logoi/core/database/daos/ai_dao.dart",
+        "name": "AiDao"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/daos/ai_dao.dart",
+        "offset": 200,
+        "name": "AiDao"
+      },
+      "references": [
+        {
+          "library_uri": "package:logoi/core/database/tables/ai_tables.dart",
+          "name": "ai_providers"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/ai_tables.dart",
+          "name": "ai_response_cache"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/ai_tables.dart",
+          "name": "api_usage_log"
+        }
+      ],
+      "type": "dao",
+      "tables": [
+        {
+          "library_uri": "package:logoi/core/database/tables/ai_tables.dart",
+          "name": "ai_providers"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/ai_tables.dart",
+          "name": "ai_response_cache"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/ai_tables.dart",
+          "name": "api_usage_log"
+        }
+      ],
+      "views": [],
+      "includes": [],
+      "queries": [],
+      "dart_type": {
+        "elements": [
+          {
+            "lexeme": "AiDao",
+            "import_uri": "package:logoi/core/database/daos/ai_dao.dart"
+          }
+        ]
+      },
+      "database": {
+        "elements": [
+          {
+            "lexeme": "LogoiDatabase",
+            "import_uri": "package:logoi/core/database/database.dart"
+          }
+        ]
+      }
+    }
+  },
+  "imports": [
+    "package:drift/drift.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/core/database/tables/ai_tables.dart"
+  ]
+}

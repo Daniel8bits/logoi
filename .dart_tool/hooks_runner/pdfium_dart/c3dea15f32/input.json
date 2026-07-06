@@ -1,0 +1,26 @@
+{
+  "assets": {},
+  "config": {
+    "build_asset_types": [
+      "code_assets/code"
+    ],
+    "extensions": {
+      "code_assets": {
+        "c_compiler": {
+          "ar": "/usr/bin/ar",
+          "cc": "/usr/lib/llvm-18/bin/clang",
+          "ld": "/usr/bin/ld"
+        },
+        "link_mode_preference": "dynamic",
+        "target_architecture": "x64",
+        "target_os": "linux"
+      }
+    },
+    "linking_enabled": false
+  },
+  "out_dir_shared": "/home/al/projects/logoi/.dart_tool/hooks_runner/shared/pdfium_dart/build/",
+  "out_file": "/home/al/projects/logoi/.dart_tool/hooks_runner/pdfium_dart/c3dea15f32/output.json",
+  "package_name": "pdfium_dart",
+  "package_root": "/home/al/.pub-cache/hosted/pub.dev/pdfium_dart-0.2.5/",
+  "user_defines": {}
+}

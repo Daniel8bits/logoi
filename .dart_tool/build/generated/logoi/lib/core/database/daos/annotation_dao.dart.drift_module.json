@@ -1,0 +1,68 @@
+{
+  "elements": {
+    "AnnotationDao": {
+      "id": {
+        "library_uri": "package:logoi/core/database/daos/annotation_dao.dart",
+        "name": "AnnotationDao"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/daos/annotation_dao.dart",
+        "offset": 217,
+        "name": "AnnotationDao"
+      },
+      "references": [
+        {
+          "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+          "name": "annotations"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+          "name": "annotation_versions"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+          "name": "notebooks"
+        }
+      ],
+      "type": "dao",
+      "tables": [
+        {
+          "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+          "name": "annotations"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+          "name": "annotation_versions"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/annotation_tables.dart",
+          "name": "notebooks"
+        }
+      ],
+      "views": [],
+      "includes": [],
+      "queries": [],
+      "dart_type": {
+        "elements": [
+          {
+            "lexeme": "AnnotationDao",
+            "import_uri": "package:logoi/core/database/daos/annotation_dao.dart"
+          }
+        ]
+      },
+      "database": {
+        "elements": [
+          {
+            "lexeme": "LogoiDatabase",
+            "import_uri": "package:logoi/core/database/database.dart"
+          }
+        ]
+      }
+    }
+  },
+  "imports": [
+    "package:drift/drift.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/core/database/tables/annotation_tables.dart"
+  ]
+}

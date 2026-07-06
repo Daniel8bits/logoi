@@ -1,0 +1,100 @@
+{
+  "elements": {
+    "DocumentDao": {
+      "id": {
+        "library_uri": "package:logoi/core/database/daos/document_dao.dart",
+        "name": "DocumentDao"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/daos/document_dao.dart",
+        "offset": 633,
+        "name": "DocumentDao"
+      },
+      "references": [
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "documents"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "page_contents"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "paragraphs"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "paragraph_embeddings"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "document_structure"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "section_summaries"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "reading_sessions"
+        }
+      ],
+      "type": "dao",
+      "tables": [
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "documents"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "page_contents"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "paragraphs"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "paragraph_embeddings"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "document_structure"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "section_summaries"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "reading_sessions"
+        }
+      ],
+      "views": [],
+      "includes": [],
+      "queries": [],
+      "dart_type": {
+        "elements": [
+          {
+            "lexeme": "DocumentDao",
+            "import_uri": "package:logoi/core/database/daos/document_dao.dart"
+          }
+        ]
+      },
+      "database": {
+        "elements": [
+          {
+            "lexeme": "LogoiDatabase",
+            "import_uri": "package:logoi/core/database/database.dart"
+          }
+        ]
+      }
+    }
+  },
+  "imports": [
+    "package:drift/drift.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/core/database/tables/document_tables.dart"
+  ]
+}

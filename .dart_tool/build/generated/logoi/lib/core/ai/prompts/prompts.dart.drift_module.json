@@ -1,0 +1,6 @@
+{
+  "elements": {},
+  "imports": [
+    "package:logoi/core/ai/models.dart"
+  ]
+}

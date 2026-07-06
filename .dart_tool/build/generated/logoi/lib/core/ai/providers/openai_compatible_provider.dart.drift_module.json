@@ -1,0 +1,9 @@
+{
+  "elements": {},
+  "imports": [
+    "package:http/http.dart",
+    "package:logoi/core/ai/errors.dart",
+    "package:logoi/core/ai/models.dart",
+    "package:logoi/core/ai/provider.dart"
+  ]
+}

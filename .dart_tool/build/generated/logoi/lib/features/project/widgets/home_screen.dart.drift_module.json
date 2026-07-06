@@ -1,0 +1,13 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:flutter_riverpod/flutter_riverpod.dart",
+    "package:intl/intl.dart",
+    "package:logoi/features/reader/widgets/reader_screen.dart",
+    "package:logoi/features/settings/widgets/settings_screen.dart",
+    "package:logoi/features/project/models/project_summary.dart",
+    "package:logoi/features/project/providers/project_providers.dart",
+    "package:logoi/core/providers/core_providers.dart"
+  ]
+}

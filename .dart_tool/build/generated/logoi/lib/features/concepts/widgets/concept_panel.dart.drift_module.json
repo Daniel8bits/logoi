@@ -1,0 +1,11 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:flutter_riverpod/flutter_riverpod.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/features/concepts/providers/concept_providers.dart",
+    "package:logoi/features/concepts/repositories/concept_repository.dart",
+    "package:logoi/features/concepts/widgets/concept_graph_view.dart"
+  ]
+}

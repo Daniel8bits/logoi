@@ -1,0 +1,11 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:flutter_riverpod/flutter_riverpod.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/shared/widgets/markdown_editor.dart",
+    "package:logoi/features/reader/providers/reader_providers.dart",
+    "package:logoi/features/notebook/providers/notebook_providers.dart"
+  ]
+}

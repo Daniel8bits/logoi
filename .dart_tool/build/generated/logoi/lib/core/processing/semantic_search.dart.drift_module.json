@@ -1,0 +1,9 @@
+{
+  "elements": {},
+  "imports": [
+    "package:logoi/core/database/daos/document_dao.dart",
+    "package:logoi/core/database/daos/search_dao.dart",
+    "package:logoi/core/services/ollama_service.dart",
+    "package:logoi/core/processing/embeddings.dart"
+  ]
+}

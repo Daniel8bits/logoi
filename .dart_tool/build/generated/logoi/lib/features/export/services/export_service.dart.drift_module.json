@@ -1,0 +1,12 @@
+{
+  "elements": {},
+  "imports": [
+    "package:logoi/core/ai/models.dart",
+    "package:logoi/core/ai/prompts/prompts.dart",
+    "package:logoi/core/ai/router.dart",
+    "package:logoi/core/database/daos/annotation_dao.dart",
+    "package:logoi/core/database/daos/concept_dao.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/core/utils/result.dart"
+  ]
+}

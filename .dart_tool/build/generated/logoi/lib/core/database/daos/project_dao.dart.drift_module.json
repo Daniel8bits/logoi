@@ -1,0 +1,52 @@
+{
+  "elements": {
+    "ProjectDao": {
+      "id": {
+        "library_uri": "package:logoi/core/database/daos/project_dao.dart",
+        "name": "ProjectDao"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/daos/project_dao.dart",
+        "offset": 177,
+        "name": "ProjectDao"
+      },
+      "references": [
+        {
+          "library_uri": "package:logoi/core/database/tables/project_tables.dart",
+          "name": "projects"
+        }
+      ],
+      "type": "dao",
+      "tables": [
+        {
+          "library_uri": "package:logoi/core/database/tables/project_tables.dart",
+          "name": "projects"
+        }
+      ],
+      "views": [],
+      "includes": [],
+      "queries": [],
+      "dart_type": {
+        "elements": [
+          {
+            "lexeme": "ProjectDao",
+            "import_uri": "package:logoi/core/database/daos/project_dao.dart"
+          }
+        ]
+      },
+      "database": {
+        "elements": [
+          {
+            "lexeme": "LogoiDatabase",
+            "import_uri": "package:logoi/core/database/database.dart"
+          }
+        ]
+      }
+    }
+  },
+  "imports": [
+    "package:drift/drift.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/core/database/tables/project_tables.dart"
+  ]
+}

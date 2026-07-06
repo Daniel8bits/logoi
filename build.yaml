@@ -1,0 +1,22 @@
+# Drift must generate its code in a phase that runs before riverpod_generator,
+# otherwise providers whose signatures contain drift-generated classes fail
+# with InvalidTypeException (known build_runner limitation, see
+# https://github.com/rrousselGit/riverpod/issues/4289).
+targets:
+  drift:
+    auto_apply_builders: false
+    builders:
+      drift_dev:analyzer:
+        enabled: true
+        options: &options
+          has_separate_analyzer: true
+      drift_dev:not_shared:
+        enabled: true
+        options: *options
+
+  $default:
+    dependencies:
+      - ":drift"
+    builders:
+      drift_dev:
+        enabled: false

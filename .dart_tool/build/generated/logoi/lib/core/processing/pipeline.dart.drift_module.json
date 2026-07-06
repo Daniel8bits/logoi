@@ -1,0 +1,12 @@
+{
+  "elements": {},
+  "imports": [
+    "package:drift/drift.dart",
+    "package:uuid/uuid.dart",
+    "package:logoi/core/database/daos/document_dao.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/core/pdf/extractor.dart",
+    "package:logoi/core/pdf/segmenter.dart",
+    "package:logoi/core/pdf/structure.dart"
+  ]
+}

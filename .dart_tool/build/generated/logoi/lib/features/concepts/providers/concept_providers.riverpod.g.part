@@ -1,0 +1,217 @@
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(conceptRepository)
+final conceptRepositoryProvider = ConceptRepositoryProvider._();
+
+final class ConceptRepositoryProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<ConceptRepository?>,
+          ConceptRepository?,
+          FutureOr<ConceptRepository?>
+        >
+    with
+        $FutureModifier<ConceptRepository?>,
+        $FutureProvider<ConceptRepository?> {
+  ConceptRepositoryProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'conceptRepositoryProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$conceptRepositoryHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<ConceptRepository?> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<ConceptRepository?> create(Ref ref) {
+    return conceptRepository(ref);
+  }
+}
+
+String _$conceptRepositoryHash() => r'a20a1b2f139f88a95ec7cebd69378a5d5933ce36';
+
+@ProviderFor(conceptList)
+final conceptListProvider = ConceptListProvider._();
+
+final class ConceptListProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<ConceptRow>>,
+          List<ConceptRow>,
+          Stream<List<ConceptRow>>
+        >
+    with $FutureModifier<List<ConceptRow>>, $StreamProvider<List<ConceptRow>> {
+  ConceptListProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'conceptListProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$conceptListHash();
+
+  @$internal
+  @override
+  $StreamProviderElement<List<ConceptRow>> $createElement(
+    $ProviderPointer pointer,
+  ) => $StreamProviderElement(pointer);
+
+  @override
+  Stream<List<ConceptRow>> create(Ref ref) {
+    return conceptList(ref);
+  }
+}
+
+String _$conceptListHash() => r'668dacec1f27fa8356c7b6b3ddd669850d4f9e95';
+
+@ProviderFor(conceptGraph)
+final conceptGraphProvider = ConceptGraphProvider._();
+
+final class ConceptGraphProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<ConceptGraphData?>,
+          ConceptGraphData?,
+          FutureOr<ConceptGraphData?>
+        >
+    with
+        $FutureModifier<ConceptGraphData?>,
+        $FutureProvider<ConceptGraphData?> {
+  ConceptGraphProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'conceptGraphProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$conceptGraphHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<ConceptGraphData?> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<ConceptGraphData?> create(Ref ref) {
+    return conceptGraph(ref);
+  }
+}
+
+String _$conceptGraphHash() => r'b3064dfa15885df87bb7af1acd94e4621a1718bf';
+
+@ProviderFor(crossRefsForPage)
+final crossRefsForPageProvider = CrossRefsForPageFamily._();
+
+final class CrossRefsForPageProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<CrossReferenceRow>>,
+          List<CrossReferenceRow>,
+          FutureOr<List<CrossReferenceRow>>
+        >
+    with
+        $FutureModifier<List<CrossReferenceRow>>,
+        $FutureProvider<List<CrossReferenceRow>> {
+  CrossRefsForPageProvider._({
+    required CrossRefsForPageFamily super.from,
+    required ({String documentId, int pageNumber}) super.argument,
+  }) : super(
+         retry: null,
+         name: r'crossRefsForPageProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$crossRefsForPageHash();
+
+  @override
+  String toString() {
+    return r'crossRefsForPageProvider'
+        ''
+        '$argument';
+  }
+
+  @$internal
+  @override
+  $FutureProviderElement<List<CrossReferenceRow>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<CrossReferenceRow>> create(Ref ref) {
+    final argument = this.argument as ({String documentId, int pageNumber});
+    return crossRefsForPage(
+      ref,
+      documentId: argument.documentId,
+      pageNumber: argument.pageNumber,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is CrossRefsForPageProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
+}
+
+String _$crossRefsForPageHash() => r'5d4585e30702298caab9655f1b666103e21b50c4';
+
+final class CrossRefsForPageFamily extends $Family
+    with
+        $FunctionalFamilyOverride<
+          FutureOr<List<CrossReferenceRow>>,
+          ({String documentId, int pageNumber})
+        > {
+  CrossRefsForPageFamily._()
+    : super(
+        retry: null,
+        name: r'crossRefsForPageProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  CrossRefsForPageProvider call({
+    required String documentId,
+    required int pageNumber,
+  }) => CrossRefsForPageProvider._(
+    argument: (documentId: documentId, pageNumber: pageNumber),
+    from: this,
+  );
+
+  @override
+  String toString() => r'crossRefsForPageProvider';
+}

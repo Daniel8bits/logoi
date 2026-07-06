@@ -1,0 +1,1 @@
+{"valid_import":true,"imports":[{"uri":"package:drift/drift.dart","transitive":false},{"uri":"package:logoi/core/database/database.dart","transitive":false},{"uri":"package:logoi/core/database/tables/project_tables.dart","transitive":false}],"elements":[{"kind":"databaseAccessor","name":"ProjectDao","dart_name":"ProjectDao"}]}

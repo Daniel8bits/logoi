@@ -1,0 +1,812 @@
+{
+  "elements": {
+    "ai_providers": {
+      "id": {
+        "library_uri": "package:logoi/core/database/tables/ai_tables.dart",
+        "name": "ai_providers"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+        "offset": 238,
+        "name": "AiProviders"
+      },
+      "references": [],
+      "type": "table",
+      "columns": [
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "id",
+          "nameInDart": "id",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 349,
+            "name": "id"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// 'openrouter' | 'openai' | 'anthropic' | 'google' | 'ollama'",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "name",
+          "nameInDart": "name",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 382,
+            "name": "name"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "bool"
+          },
+          "nullable": false,
+          "nameInSql": "is_active",
+          "nameInDart": "isActive",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 417,
+            "name": "isActive"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": {
+            "elements": [
+              "const ",
+              {
+                "lexeme": "Constant",
+                "import_uri": "package:drift/src/runtime/query_builder/query_builder.dart"
+              },
+              "(false)"
+            ]
+          },
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": true,
+          "nameInSql": "base_url",
+          "nameInDart": "baseUrl",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 531,
+            "name": "baseUrl"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// For Ollama or custom proxies.",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": true,
+          "nameInSql": "models",
+          "nameInDart": "models",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 627,
+            "name": "models"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// JSON array: available/preferred models.",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": true,
+          "nameInSql": "settings",
+          "nameInDart": "settings",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 720,
+            "name": "settings"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// JSON: { temperature, maxTokens, ... }",
+          "constraints": [],
+          "customConstraints": null
+        }
+      ],
+      "existing_data_class": null,
+      "table_constraints": [
+        {
+          "type": "primary_key",
+          "columns": [
+            "id"
+          ]
+        }
+      ],
+      "custom_parent_class": null,
+      "interfaces_for_row_class": [],
+      "fixed_entity_info_name": null,
+      "base_dart_name": "AiProviders",
+      "row_class_name": "AiProviderRow",
+      "companion_class_name": null,
+      "without_rowid": false,
+      "strict": false,
+      "write_default_constraints": true,
+      "custom_constraints": [],
+      "attached_indices": []
+    },
+    "ai_response_cache": {
+      "id": {
+        "library_uri": "package:logoi/core/database/tables/ai_tables.dart",
+        "name": "ai_response_cache"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+        "offset": 884,
+        "name": "AiResponseCache"
+      },
+      "references": [],
+      "type": "table",
+      "columns": [
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "id",
+          "nameInDart": "id",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 933,
+            "name": "id"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "cache_key",
+          "nameInDart": "cacheKey",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 1022,
+            "name": "cacheKey"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// hash(mode + prompt_version + input_hash + model)",
+          "constraints": [
+            {
+              "type": "unique"
+            }
+          ],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "input_hash",
+          "nameInDart": "inputHash",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 1070,
+            "name": "inputHash"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "ai_mode",
+          "nameInDart": "aiMode",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 1110,
+            "name": "aiMode"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "prompt_version",
+          "nameInDart": "promptVersion",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 1147,
+            "name": "promptVersion"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "provider",
+          "nameInDart": "provider",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 1191,
+            "name": "provider"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "model",
+          "nameInDart": "model",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 1230,
+            "name": "model"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "response",
+          "nameInDart": "response",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 1266,
+            "name": "response"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": true,
+          "nameInSql": "input_tokens",
+          "nameInDart": "inputTokens",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 1304,
+            "name": "inputTokens"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": true,
+          "nameInSql": "output_tokens",
+          "nameInDart": "outputTokens",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 1359,
+            "name": "outputTokens"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": false,
+          "nameInSql": "created_at",
+          "nameInDart": "createdAt",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 1415,
+            "name": "createdAt"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": false,
+          "nameInSql": "last_used_at",
+          "nameInDart": "lastUsedAt",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 1457,
+            "name": "lastUsedAt"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": false,
+          "nameInSql": "use_count",
+          "nameInDart": "useCount",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 1500,
+            "name": "useCount"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": {
+            "elements": [
+              "const ",
+              {
+                "lexeme": "Constant",
+                "import_uri": "package:drift/src/runtime/query_builder/query_builder.dart"
+              },
+              "(1)"
+            ]
+          },
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        }
+      ],
+      "existing_data_class": null,
+      "table_constraints": [
+        {
+          "type": "primary_key",
+          "columns": [
+            "id"
+          ]
+        }
+      ],
+      "custom_parent_class": null,
+      "interfaces_for_row_class": [],
+      "fixed_entity_info_name": null,
+      "base_dart_name": "AiResponseCache",
+      "row_class_name": "AiResponseCacheRow",
+      "companion_class_name": null,
+      "without_rowid": false,
+      "strict": false,
+      "write_default_constraints": true,
+      "custom_constraints": [],
+      "attached_indices": []
+    },
+    "api_usage_log": {
+      "id": {
+        "library_uri": "package:logoi/core/database/tables/ai_tables.dart",
+        "name": "api_usage_log"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+        "offset": 1683,
+        "name": "ApiUsageLog"
+      },
+      "references": [
+        {
+          "library_uri": "package:logoi/core/database/tables/project_tables.dart",
+          "name": "projects"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+          "name": "documents"
+        }
+      ],
+      "type": "table",
+      "columns": [
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "id",
+          "nameInDart": "id",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 1728,
+            "name": "id"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": true,
+          "nameInSql": "project_id",
+          "nameInDart": "projectId",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 1761,
+            "name": "projectId"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [
+            {
+              "type": "foreign_key",
+              "column": {
+                "table": {
+                  "library_uri": "package:logoi/core/database/tables/project_tables.dart",
+                  "name": "projects"
+                },
+                "name": "id"
+              },
+              "onUpdate": null,
+              "onDelete": "setNull",
+              "initiallyDeferred": false
+            }
+          ],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": true,
+          "nameInSql": "document_id",
+          "nameInDart": "documentId",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 1873,
+            "name": "documentId"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [
+            {
+              "type": "foreign_key",
+              "column": {
+                "table": {
+                  "library_uri": "package:logoi/core/database/tables/document_tables.dart",
+                  "name": "documents"
+                },
+                "name": "id"
+              },
+              "onUpdate": null,
+              "onDelete": "setNull",
+              "initiallyDeferred": false
+            }
+          ],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "provider",
+          "nameInDart": "provider",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 1987,
+            "name": "provider"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "model",
+          "nameInDart": "model",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 2026,
+            "name": "model"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "string"
+          },
+          "nullable": false,
+          "nameInSql": "feature",
+          "nameInDart": "feature",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 2108,
+            "name": "feature"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": "/// 'summarize' | 'explain' | 'chat' | ...",
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": false,
+          "nameInSql": "input_tokens",
+          "nameInDart": "inputTokens",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 2145,
+            "name": "inputTokens"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": false,
+          "nameInSql": "output_tokens",
+          "nameInDart": "outputTokens",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 2189,
+            "name": "outputTokens"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "bool"
+          },
+          "nullable": false,
+          "nameInSql": "cache_hit",
+          "nameInDart": "cacheHit",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 2235,
+            "name": "cacheHit"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": {
+            "elements": [
+              "const ",
+              {
+                "lexeme": "Constant",
+                "import_uri": "package:drift/src/runtime/query_builder/query_builder.dart"
+              },
+              "(false)"
+            ]
+          },
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "double"
+          },
+          "nullable": true,
+          "nameInSql": "cost_usd",
+          "nameInDart": "costUsd",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 2312,
+            "name": "costUsd"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        },
+        {
+          "sqlType": {
+            "builtin": "int"
+          },
+          "nullable": false,
+          "nameInSql": "called_at",
+          "nameInDart": "calledAt",
+          "declaration": {
+            "source_uri": "package:logoi/core/database/tables/ai_tables.dart",
+            "offset": 2360,
+            "name": "calledAt"
+          },
+          "typeConverter": null,
+          "clientDefaultCode": null,
+          "defaultArgument": null,
+          "overriddenJsonName": null,
+          "referenceName": null,
+          "documentationComment": null,
+          "constraints": [],
+          "customConstraints": null
+        }
+      ],
+      "existing_data_class": null,
+      "table_constraints": [
+        {
+          "type": "primary_key",
+          "columns": [
+            "id"
+          ]
+        }
+      ],
+      "custom_parent_class": null,
+      "interfaces_for_row_class": [],
+      "fixed_entity_info_name": null,
+      "base_dart_name": "ApiUsageLog",
+      "row_class_name": "ApiUsageLogRow",
+      "companion_class_name": null,
+      "without_rowid": false,
+      "strict": false,
+      "write_default_constraints": true,
+      "custom_constraints": [],
+      "attached_indices": []
+    }
+  },
+  "imports": [
+    "package:drift/drift.dart",
+    "package:logoi/core/database/tables/document_tables.dart",
+    "package:logoi/core/database/tables/project_tables.dart"
+  ]
+}
