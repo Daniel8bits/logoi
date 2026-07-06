@@ -401,6 +401,28 @@ of at most 150 words, in the form:
 Preserve key facts, decisions and open questions. Output only the block.''',
   );
 
+  static const entityResolution = PromptTemplate(
+    version: 'v1.0',
+    template: '''
+Identify the main entity referenced in the selected text from an academic document.
+Return ONLY valid JSON:
+{
+  "entity": "name of the entity",
+  "type": "place|person|artifact|concept|event",
+  "modern_equivalent": "modern name or location if applicable",
+  "wikidata_id": "Q-number if known or null",
+  "coordinates": {"lat": 0.0, "lon": 0.0},
+  "map_query": "search query for map",
+  "image_queries": ["query1", "query2"],
+  "video_queries": ["query1"],
+  "confidence": 0.0
+}
+
+Document context: "{{document_title}}" p. {{current_page}}
+Selected text: "{{selected_text}}"
+Respond in {{user_language}} for string values.''',
+  );
+
   /// Template lookup by task, for tasks driven by a single selection prompt.
   static PromptTemplate forTask(AITask task) => switch (task) {
         AITask.explain => explain,
@@ -419,6 +441,7 @@ Preserve key facts, decisions and open questions. Output only the block.''',
         AITask.documentSummary => documentSummary,
         AITask.historyCompression => historyCompression,
         AITask.readingSummary => readingSummary,
+        AITask.entityResolution => entityResolution,
         AITask.chat => chatBase,
       };
 }

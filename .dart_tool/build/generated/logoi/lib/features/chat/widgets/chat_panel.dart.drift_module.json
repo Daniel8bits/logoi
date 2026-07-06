@@ -6,6 +6,8 @@
     "package:logoi/shared/widgets/markdown_preview.dart",
     "package:logoi/features/project/providers/project_providers.dart",
     "package:logoi/features/reader/providers/reader_providers.dart",
+    "package:logoi/features/visual_context/widgets/media_card.dart",
+    "package:logoi/features/visual_context/widgets/media_reference_dialog.dart",
     "package:logoi/features/chat/models/quick_mode.dart",
     "package:logoi/features/chat/providers/chat_providers.dart"
   ]

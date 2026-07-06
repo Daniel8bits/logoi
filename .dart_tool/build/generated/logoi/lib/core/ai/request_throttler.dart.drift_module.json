@@ -1,0 +1,7 @@
+{
+  "elements": {},
+  "imports": [
+    "package:logoi/core/ai/guard_limits.dart",
+    "package:logoi/core/ai/errors.dart"
+  ]
+}

@@ -7,7 +7,7 @@
       },
       "declaration": {
         "source_uri": "package:logoi/core/database/database.dart",
-        "offset": 1236,
+        "offset": 1340,
         "name": "LogoiDatabase"
       },
       "references": [
@@ -82,6 +82,10 @@
         {
           "library_uri": "package:logoi/core/database/tables/ai_tables.dart",
           "name": "api_usage_log"
+        },
+        {
+          "library_uri": "package:logoi/core/database/tables/media_tables.dart",
+          "name": "media_reference_cache"
         },
         {
           "library_uri": "package:logoi/core/database/tables/document_tables.dart",
@@ -163,6 +167,10 @@
           "name": "api_usage_log"
         },
         {
+          "library_uri": "package:logoi/core/database/tables/media_tables.dart",
+          "name": "media_reference_cache"
+        },
+        {
           "library_uri": "package:logoi/core/database/tables/document_tables.dart",
           "name": "reading_sessions"
         }
@@ -197,6 +205,10 @@
           "name": "AiDao"
         },
         {
+          "library_uri": "package:logoi/core/database/daos/media_dao.dart",
+          "name": "MediaDao"
+        },
+        {
           "library_uri": "package:logoi/core/database/daos/search_dao.dart",
           "name": "SearchDao"
         }
@@ -212,6 +224,7 @@
     "package:logoi/core/database/daos/chat_dao.dart",
     "package:logoi/core/database/daos/concept_dao.dart",
     "package:logoi/core/database/daos/document_dao.dart",
+    "package:logoi/core/database/daos/media_dao.dart",
     "package:logoi/core/database/daos/project_dao.dart",
     "package:logoi/core/database/daos/search_dao.dart",
     "package:logoi/core/database/tables/ai_tables.dart",
@@ -219,6 +232,7 @@
     "package:logoi/core/database/tables/chat_tables.dart",
     "package:logoi/core/database/tables/document_tables.dart",
     "package:logoi/core/database/tables/knowledge_tables.dart",
+    "package:logoi/core/database/tables/media_tables.dart",
     "package:logoi/core/database/tables/project_tables.dart"
   ]
 }

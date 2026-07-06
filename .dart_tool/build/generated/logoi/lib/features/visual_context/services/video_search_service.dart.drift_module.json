@@ -1,0 +1,9 @@
+{
+  "elements": {},
+  "imports": [
+    "package:http/http.dart",
+    "package:url_launcher/url_launcher.dart",
+    "package:logoi/features/settings/repositories/media_settings_repository.dart",
+    "package:logoi/features/visual_context/models/media_reference.dart"
+  ]
+}

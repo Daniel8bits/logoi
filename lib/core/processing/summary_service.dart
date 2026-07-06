@@ -67,7 +67,10 @@ class SummaryHierarchyService {
     for (var i = 0; i < leaves.length; i++) {
       final result = await _summarizeSection(documentId, leaves[i]);
       if (result.isError) return Result.error(result.errorOrNull!);
-      if (result.valueOrNull == true) calls++;
+      if (result.valueOrNull == true) {
+        calls++;
+        await Future<void>.delayed(const Duration(seconds: 2));
+      }
       onProgress?.call('sections', i + 1, leaves.length);
     }
     await _documentDao.setProcessingStatus(documentId, 'summarized');
@@ -80,7 +83,10 @@ class SummaryHierarchyService {
       final children = childrenOf[parents[i].id]!;
       final result = await _summarizeChapter(parents[i], children);
       if (result.isError) return Result.error(result.errorOrNull!);
-      if (result.valueOrNull == true) calls++;
+      if (result.valueOrNull == true) {
+        calls++;
+        await Future<void>.delayed(const Duration(seconds: 2));
+      }
       onProgress?.call('chapters', i + 1, parents.length);
     }
 

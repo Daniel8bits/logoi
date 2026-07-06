@@ -8,8 +8,12 @@
     "package:logoi/core/database/database.dart",
     "package:logoi/core/utils/result.dart",
     "package:logoi/core/ai/errors.dart",
+    "package:logoi/core/ai/guard_limits.dart",
     "package:logoi/core/ai/models.dart",
+    "package:logoi/core/ai/pricing.dart",
     "package:logoi/core/ai/prompts/prompts.dart",
-    "package:logoi/core/ai/provider.dart"
+    "package:logoi/core/ai/provider.dart",
+    "package:logoi/core/ai/request_throttler.dart",
+    "package:logoi/core/ai/usage_guard.dart"
   ]
 }

@@ -105,6 +105,8 @@ class ActiveChatState {
 
 @Riverpod(keepAlive: true)
 class ActiveChat extends _$ActiveChat {
+  DateTime? _lastSendAt;
+
   @override
   ActiveChatState build() => const ActiveChatState();
 
@@ -112,6 +114,14 @@ class ActiveChat extends _$ActiveChat {
       state = ActiveChatState(sessionId: sessionId);
 
   Future<void> send(String text, {QuickMode? quickMode}) async {
+    if (state.isStreaming) return;
+    final now = DateTime.now();
+    if (_lastSendAt != null &&
+        now.difference(_lastSendAt!) < const Duration(milliseconds: 800)) {
+      return;
+    }
+    _lastSendAt = now;
+
     final repository = await ref.read(chatRepositoryProvider.future);
     final context = await ref.read(chatContextProvider.future);
     if (repository == null || context == null) {

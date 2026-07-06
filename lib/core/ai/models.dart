@@ -44,6 +44,7 @@ enum AITask {
   documentSummary,
   historyCompression,
   readingSummary,
+  entityResolution,
 }
 
 /// Selection granularity (docs/04_AI_LAYER.md §1.3).

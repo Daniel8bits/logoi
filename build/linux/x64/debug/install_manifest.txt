@@ -14,6 +14,7 @@
 /home/al/projects/logoi/build/linux/x64/debug/bundle/data/flutter_assets/NativeAssetsManifest.json
 /home/al/projects/logoi/build/linux/x64/debug/bundle/data/flutter_assets/FontManifest.json
 /home/al/projects/logoi/build/linux/x64/debug/bundle/data/flutter_assets/version.json
+/home/al/projects/logoi/build/linux/x64/debug/bundle/data/flutter_assets/packages/flutter_map/lib/assets/flutter_map_logo.png
 /home/al/projects/logoi/build/linux/x64/debug/bundle/data/flutter_assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Fraktur-Bold.ttf
 /home/al/projects/logoi/build/linux/x64/debug/bundle/data/flutter_assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Size4-Regular.ttf
 /home/al/projects/logoi/build/linux/x64/debug/bundle/data/flutter_assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Size3-Regular.ttf
@@ -34,6 +35,7 @@
 /home/al/projects/logoi/build/linux/x64/debug/bundle/data/flutter_assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Caligraphic-Regular.ttf
 /home/al/projects/logoi/build/linux/x64/debug/bundle/data/flutter_assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_SansSerif-Bold.ttf
 /home/al/projects/logoi/build/linux/x64/debug/bundle/data/flutter_assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_AMS-Regular.ttf
+/home/al/projects/logoi/build/linux/x64/debug/bundle/data/flutter_assets/packages/youtube_player_iframe/assets/player.html
 /home/al/projects/logoi/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.bin
 /home/al/projects/logoi/build/linux/x64/debug/bundle/data/flutter_assets/shaders/ink_sparkle.frag
 /home/al/projects/logoi/build/linux/x64/debug/bundle/data/flutter_assets/shaders/stretch_effect.frag

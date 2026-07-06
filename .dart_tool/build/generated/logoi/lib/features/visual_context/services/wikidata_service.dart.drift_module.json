@@ -1,0 +1,7 @@
+{
+  "elements": {},
+  "imports": [
+    "package:http/http.dart",
+    "package:logoi/features/visual_context/models/media_reference.dart"
+  ]
+}

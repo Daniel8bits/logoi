@@ -1,0 +1,176 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'visual_context_providers.dart';
+
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(visualContextRepository)
+final visualContextRepositoryProvider = VisualContextRepositoryProvider._();
+
+final class VisualContextRepositoryProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<VisualContextRepository?>,
+          VisualContextRepository?,
+          FutureOr<VisualContextRepository?>
+        >
+    with
+        $FutureModifier<VisualContextRepository?>,
+        $FutureProvider<VisualContextRepository?> {
+  VisualContextRepositoryProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'visualContextRepositoryProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$visualContextRepositoryHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<VisualContextRepository?> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<VisualContextRepository?> create(Ref ref) {
+    return visualContextRepository(ref);
+  }
+}
+
+String _$visualContextRepositoryHash() =>
+    r'b855cb4384cba5a5be3ae69fe71aec7c4faef934';
+
+@ProviderFor(mediaReferenceBundle)
+final mediaReferenceBundleProvider = MediaReferenceBundleFamily._();
+
+final class MediaReferenceBundleProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<MediaReferenceBundle?>,
+          MediaReferenceBundle?,
+          FutureOr<MediaReferenceBundle?>
+        >
+    with
+        $FutureModifier<MediaReferenceBundle?>,
+        $FutureProvider<MediaReferenceBundle?> {
+  MediaReferenceBundleProvider._({
+    required MediaReferenceBundleFamily super.from,
+    required ({
+      String selectionText,
+      String? documentTitle,
+      int? pageNumber,
+      bool includeImages,
+      bool includeVideos,
+    })
+    super.argument,
+  }) : super(
+         retry: null,
+         name: r'mediaReferenceBundleProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$mediaReferenceBundleHash();
+
+  @override
+  String toString() {
+    return r'mediaReferenceBundleProvider'
+        ''
+        '$argument';
+  }
+
+  @$internal
+  @override
+  $FutureProviderElement<MediaReferenceBundle?> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<MediaReferenceBundle?> create(Ref ref) {
+    final argument =
+        this.argument
+            as ({
+              String selectionText,
+              String? documentTitle,
+              int? pageNumber,
+              bool includeImages,
+              bool includeVideos,
+            });
+    return mediaReferenceBundle(
+      ref,
+      selectionText: argument.selectionText,
+      documentTitle: argument.documentTitle,
+      pageNumber: argument.pageNumber,
+      includeImages: argument.includeImages,
+      includeVideos: argument.includeVideos,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is MediaReferenceBundleProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
+}
+
+String _$mediaReferenceBundleHash() =>
+    r'3f86af6f543d71f54ea7b81b2c6fd2fc5cdaa8a5';
+
+final class MediaReferenceBundleFamily extends $Family
+    with
+        $FunctionalFamilyOverride<
+          FutureOr<MediaReferenceBundle?>,
+          ({
+            String selectionText,
+            String? documentTitle,
+            int? pageNumber,
+            bool includeImages,
+            bool includeVideos,
+          })
+        > {
+  MediaReferenceBundleFamily._()
+    : super(
+        retry: null,
+        name: r'mediaReferenceBundleProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  MediaReferenceBundleProvider call({
+    required String selectionText,
+    String? documentTitle,
+    int? pageNumber,
+    bool includeImages = true,
+    bool includeVideos = true,
+  }) => MediaReferenceBundleProvider._(
+    argument: (
+      selectionText: selectionText,
+      documentTitle: documentTitle,
+      pageNumber: pageNumber,
+      includeImages: includeImages,
+      includeVideos: includeVideos,
+    ),
+    from: this,
+  );
+
+  @override
+  String toString() => r'mediaReferenceBundleProvider';
+}

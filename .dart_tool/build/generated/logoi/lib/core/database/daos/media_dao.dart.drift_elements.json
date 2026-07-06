@@ -1,0 +1,1 @@
+{"valid_import":true,"imports":[{"uri":"package:drift/drift.dart","transitive":false},{"uri":"package:logoi/core/database/database.dart","transitive":false},{"uri":"package:logoi/core/database/tables/media_tables.dart","transitive":false}],"elements":[{"kind":"databaseAccessor","name":"MediaDao","dart_name":"MediaDao"}]}

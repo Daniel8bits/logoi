@@ -244,7 +244,7 @@ final class ActiveChatProvider
   }
 }
 
-String _$activeChatHash() => r'90a972cd4a1ded6672c6adf40222704d50142bf0';
+String _$activeChatHash() => r'70521c48ced5f11edbf753b6d8ee792fecd4d8a8';
 
 abstract class _$ActiveChat extends $Notifier<ActiveChatState> {
   ActiveChatState build();

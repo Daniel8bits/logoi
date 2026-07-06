@@ -1,0 +1,13 @@
+{
+  "elements": {},
+  "imports": [
+    "package:riverpod_annotation/riverpod_annotation.dart",
+    "package:logoi/core/providers/ai_providers.dart",
+    "package:logoi/features/project/providers/project_providers.dart",
+    "package:logoi/features/settings/providers/media_settings_providers.dart",
+    "package:logoi/features/visual_context/models/media_reference.dart",
+    "package:logoi/features/visual_context/repositories/visual_context_repository.dart",
+    "package:logoi/features/visual_context/services/image_search_service.dart",
+    "package:logoi/features/visual_context/services/video_search_service.dart"
+  ]
+}

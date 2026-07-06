@@ -1,0 +1,10 @@
+{
+  "elements": {},
+  "imports": [
+    "package:cached_network_image/cached_network_image.dart",
+    "package:flutter/material.dart",
+    "package:url_launcher/url_launcher.dart",
+    "package:youtube_player_iframe/youtube_player_iframe.dart",
+    "package:logoi/features/visual_context/models/media_reference.dart"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "elements": {},
+  "imports": [
+    "package:logoi/core/ai/router.dart",
+    "package:logoi/core/database/daos/media_dao.dart",
+    "package:logoi/features/visual_context/models/media_reference.dart",
+    "package:logoi/features/visual_context/services/image_search_service.dart",
+    "package:logoi/features/visual_context/services/media_resolver.dart",
+    "package:logoi/features/visual_context/services/video_search_service.dart",
+    "package:logoi/features/visual_context/services/wikidata_service.dart"
+  ]
+}

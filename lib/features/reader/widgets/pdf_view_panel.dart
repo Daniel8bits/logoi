@@ -9,6 +9,7 @@ import '../../chat/providers/chat_providers.dart';
 import '../../chat/widgets/json_mode_result_dialog.dart';
 import '../../concepts/providers/concept_providers.dart';
 import '../../concepts/widgets/cross_ref_panel.dart';
+import '../../visual_context/widgets/media_reference_dialog.dart';
 import '../models/selection.dart';
 import '../providers/reader_providers.dart';
 import 'right_panel.dart';
@@ -129,12 +130,46 @@ class _PdfViewPanelState extends ConsumerState<PdfViewPanel> {
             : '🔗 Concluir vínculo aqui',
         onPressed: () => run(_handleCrossRefLink),
       ),
+      ContextMenuButtonItem(
+        label: '🗺️ Mostrar no mapa',
+        onPressed: () => run(() => _showMedia(MediaReferenceTab.map)),
+      ),
+      ContextMenuButtonItem(
+        label: '🖼️ Mostrar imagens',
+        onPressed: () => run(() => _showMedia(MediaReferenceTab.images)),
+      ),
+      ContextMenuButtonItem(
+        label: '🎬 Buscar vídeos',
+        onPressed: () => run(() => _showMedia(MediaReferenceTab.videos)),
+      ),
+      ContextMenuButtonItem(
+        label: '📚 Referências visuais',
+        onPressed: () => run(() => _showMedia(MediaReferenceTab.all)),
+      ),
       for (final mode in QuickMode.values)
         ContextMenuButtonItem(
           label: mode.label,
           onPressed: () => run(() => _runQuickMode(mode)),
         ),
     ]);
+  }
+
+  Future<void> _showMedia(MediaReferenceTab tab) async {
+    final selection = ref.read(readerProvider).selection;
+    if (selection == null) return;
+    final documentId = ref.read(readerProvider).documentId;
+    final doc = documentId != null
+        ? await ref.read(documentByIdProvider(documentId).future)
+        : null;
+    if (!mounted) return;
+    await showMediaReferenceDialog(
+      context,
+      ref,
+      selectionText: selection.text,
+      documentTitle: doc?.title ?? doc?.fileName,
+      pageNumber: selection.pageNumber,
+      initialTab: tab,
+    );
   }
 
   /// AI concept extraction from the selection (docs/08_ROADMAP.md §3.5).

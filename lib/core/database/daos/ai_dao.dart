@@ -54,13 +54,41 @@ class AiDao extends DatabaseAccessor<LogoiDatabase> with _$AiDaoMixin {
             ..orderBy([(t) => OrderingTerm.desc(t.calledAt)]))
           .get();
 
-  Future<int> countRequestsSince(int sinceMs) async {
+  Future<int> countRequestsSince(int sinceMs, {String? projectId}) async {
     final countExp = apiUsageLog.id.count();
-    final query = selectOnly(apiUsageLog)
-      ..addColumns([countExp])
-      ..where(apiUsageLog.calledAt.isBiggerOrEqualValue(sinceMs) &
-          apiUsageLog.cacheHit.equals(false));
+    final query = selectOnly(apiUsageLog)..addColumns([countExp]);
+    query.where(apiUsageLog.calledAt.isBiggerOrEqualValue(sinceMs) &
+        apiUsageLog.cacheHit.equals(false));
+    if (projectId != null) {
+      query.where(apiUsageLog.projectId.equals(projectId));
+    }
     final row = await query.getSingle();
     return row.read(countExp) ?? 0;
+  }
+
+  Future<int> sumTokensSince(int sinceMs, {String? projectId}) async {
+    final sumIn = apiUsageLog.inputTokens.sum();
+    final sumOut = apiUsageLog.outputTokens.sum();
+    final query = selectOnly(apiUsageLog)
+      ..addColumns([sumIn, sumOut]);
+    query.where(apiUsageLog.calledAt.isBiggerOrEqualValue(sinceMs) &
+        apiUsageLog.cacheHit.equals(false));
+    if (projectId != null) {
+      query.where(apiUsageLog.projectId.equals(projectId));
+    }
+    final row = await query.getSingle();
+    return (row.read(sumIn) ?? 0) + (row.read(sumOut) ?? 0);
+  }
+
+  Future<double> sumCostSince(int sinceMs, {String? projectId}) async {
+    final sumCost = apiUsageLog.costUsd.sum();
+    final query = selectOnly(apiUsageLog)..addColumns([sumCost]);
+    query.where(apiUsageLog.calledAt.isBiggerOrEqualValue(sinceMs) &
+        apiUsageLog.cacheHit.equals(false));
+    if (projectId != null) {
+      query.where(apiUsageLog.projectId.equals(projectId));
+    }
+    final row = await query.getSingle();
+    return row.read(sumCost) ?? 0;
   }
 }

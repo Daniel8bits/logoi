@@ -62,3 +62,14 @@ class AIParseError extends AIError {
 class UnknownAIError extends AIError {
   const UnknownAIError(super.message);
 }
+
+/// Local quota exceeded (hourly/daily/monthly project limits).
+class QuotaExceededError extends AIError {
+  const QuotaExceededError(super.message);
+}
+
+/// Anti-loop throttle: burst, min interval, circuit breaker, concurrency.
+class ThrottleExceededError extends AIError {
+  const ThrottleExceededError(super.message, {this.retryAfter});
+  final Duration? retryAfter;
+}

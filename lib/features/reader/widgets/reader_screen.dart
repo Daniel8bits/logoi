@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:multi_split_view/multi_split_view.dart';
 
+import '../../../core/providers/ai_providers.dart';
 import '../../../core/providers/core_providers.dart';
+import '../../../core/providers/idle_detector_provider.dart';
 import '../../../core/providers/processing_providers.dart';
 import '../../export/widgets/export_dialog.dart';
 import '../../project/providers/project_providers.dart';
@@ -85,9 +87,16 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
               const SizedBox(width: 8),
             ],
           ),
-          body: readerState.documentId == null
-              ? const DocumentListView()
-              : _buildPanels(readerState),
+          body: Column(
+            children: [
+              const _CircuitBreakerBanner(),
+              Expanded(
+                child: readerState.documentId == null
+                    ? const DocumentListView()
+                    : _buildPanels(readerState),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -118,6 +127,34 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
         initialAreas: areas,
         builder: (context, area) => children[area.index],
       ),
+    );
+  }
+}
+
+class _CircuitBreakerBanner extends ConsumerWidget {
+  const _CircuitBreakerBanner();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final throttler = ref.watch(projectThrottlerProvider);
+    if (throttler == null || !throttler.isCircuitOpen) {
+      return const SizedBox.shrink();
+    }
+    final remaining = throttler.circuitRemaining?.inSeconds ?? 0;
+    return MaterialBanner(
+      content: Text(
+        'Proteção anti-loop ativada. IA pausada por ${remaining}s.',
+      ),
+      leading: const Icon(Icons.shield_outlined, color: Colors.orange),
+      actions: [
+        TextButton(
+          onPressed: () {
+            throttler.reset();
+            ref.invalidate(projectThrottlerProvider);
+          },
+          child: const Text('Resetar'),
+        ),
+      ],
     );
   }
 }
@@ -171,12 +208,49 @@ class _ProcessingMenu extends ConsumerWidget {
                   : 'Ollama indisponível ou indexação já em andamento'),
             ));
           case 'summarize':
+            final project = ref.read(currentProjectProvider);
+            if (project?.settings.processOnlyWhenIdle == true &&
+                !ref.read(isUserIdleProvider)) {
+              messenger.showSnackBar(const SnackBar(
+                content: Text(
+                  'Processamento batch pausado: aguarde ficar inativo (60s).',
+                ),
+              ));
+              return;
+            }
             final service = await ref.read(summaryServiceProvider.future);
             if (service == null) {
               messenger.showSnackBar(const SnackBar(
                 content: Text('Configure um provider de IA nas configurações.'),
               ));
               return;
+            }
+            final structure =
+                await ref.read(documentStructureProvider(documentId).future);
+            final leafCount = structure.length;
+            if (project?.settings.confirmBeforeBatchAi ?? true) {
+              final ok = await showDialog<bool>(
+                context: context,
+                builder: (ctx) => AlertDialog(
+                  title: const Text('Gerar resumos via IA'),
+                  content: Text(
+                    'Estimativa: até $leafCount chamadas de API '
+                    '(seções) + capítulos + documento.\n\n'
+                    'Continuar?',
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(ctx, false),
+                      child: const Text('Cancelar'),
+                    ),
+                    FilledButton(
+                      onPressed: () => Navigator.pop(ctx, true),
+                      child: const Text('Continuar'),
+                    ),
+                  ],
+                ),
+              );
+              if (ok != true) return;
             }
             messenger.showSnackBar(
               const SnackBar(content: Text('Gerando resumos em background…')),

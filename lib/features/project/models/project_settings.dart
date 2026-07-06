@@ -18,6 +18,12 @@ abstract class ProjectSettings with _$ProjectSettings {
     @Default(false) bool autoDetectCrossRefs,
     @Default(30) int maxApiRequestsPerHour,
     @Default(false) bool processOnlyWhenIdle,
+    @Default(500000) int maxTokensPerDay,
+    @Default(5.0) double maxCostUsdPerMonth,
+    @Default(true) bool confirmBeforeBatchAi,
+    @Default(1.5) double minSecondsBetweenCalls,
+    @Default(8) int maxCallsPerMinute,
+    @Default(true) bool circuitBreakerEnabled,
   }) = _ProjectSettings;
 
   factory ProjectSettings.fromJson(Map<String, dynamic> json) =>

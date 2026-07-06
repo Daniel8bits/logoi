@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../shared/widgets/markdown_preview.dart';
 import '../../project/providers/project_providers.dart';
 import '../../reader/providers/reader_providers.dart';
+import '../../visual_context/widgets/media_card.dart';
+import '../../visual_context/widgets/media_reference_dialog.dart';
 import '../models/quick_mode.dart';
 import '../providers/chat_providers.dart';
 
@@ -30,6 +32,8 @@ class _ChatPanelState extends ConsumerState<ChatPanel> {
   Widget build(BuildContext context) {
     final activeChat = ref.watch(activeChatProvider);
     final project = ref.watch(currentProjectProvider);
+    final readerState = ref.watch(readerProvider);
+    final selection = readerState.selection;
 
     return Column(
       children: [
@@ -84,8 +88,30 @@ class _ChatPanelState extends ConsumerState<ChatPanel> {
                       onPressed:
                           activeChat.isStreaming ? null : () => _sendQuick(mode),
                     ),
+                  if (selection != null)
+                    ActionChip(
+                      avatar: const Icon(Icons.map_outlined, size: 16),
+                      label: const Text('Referências visuais'),
+                      visualDensity: VisualDensity.compact,
+                      onPressed: activeChat.isStreaming
+                          ? null
+                          : () => showMediaReferenceDialog(
+                                context,
+                                ref,
+                                selectionText: selection.text,
+                                pageNumber: selection.pageNumber,
+                                initialTab: MediaReferenceTab.all,
+                              ),
+                    ),
                 ],
               ),
+              if (selection != null) ...[
+                const SizedBox(height: 8),
+                MediaCard(
+                  selectionText: selection.text,
+                  pageNumber: selection.pageNumber,
+                ),
+              ],
               const SizedBox(height: 8),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,

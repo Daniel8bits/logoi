@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProjectSettings {
 
- String get defaultProvider; String get defaultModel; String get summaryProvider; String get summaryModel; double get temperature; int get summaryDepth; bool get autoExtractConcepts; bool get autoDetectCrossRefs; int get maxApiRequestsPerHour; bool get processOnlyWhenIdle;
+ String get defaultProvider; String get defaultModel; String get summaryProvider; String get summaryModel; double get temperature; int get summaryDepth; bool get autoExtractConcepts; bool get autoDetectCrossRefs; int get maxApiRequestsPerHour; bool get processOnlyWhenIdle; int get maxTokensPerDay; double get maxCostUsdPerMonth; bool get confirmBeforeBatchAi; double get minSecondsBetweenCalls; int get maxCallsPerMinute; bool get circuitBreakerEnabled;
 /// Create a copy of ProjectSettings
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ProjectSettingsCopyWith<ProjectSettings> get copyWith => _$ProjectSettingsCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProjectSettings&&(identical(other.defaultProvider, defaultProvider) || other.defaultProvider == defaultProvider)&&(identical(other.defaultModel, defaultModel) || other.defaultModel == defaultModel)&&(identical(other.summaryProvider, summaryProvider) || other.summaryProvider == summaryProvider)&&(identical(other.summaryModel, summaryModel) || other.summaryModel == summaryModel)&&(identical(other.temperature, temperature) || other.temperature == temperature)&&(identical(other.summaryDepth, summaryDepth) || other.summaryDepth == summaryDepth)&&(identical(other.autoExtractConcepts, autoExtractConcepts) || other.autoExtractConcepts == autoExtractConcepts)&&(identical(other.autoDetectCrossRefs, autoDetectCrossRefs) || other.autoDetectCrossRefs == autoDetectCrossRefs)&&(identical(other.maxApiRequestsPerHour, maxApiRequestsPerHour) || other.maxApiRequestsPerHour == maxApiRequestsPerHour)&&(identical(other.processOnlyWhenIdle, processOnlyWhenIdle) || other.processOnlyWhenIdle == processOnlyWhenIdle));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProjectSettings&&(identical(other.defaultProvider, defaultProvider) || other.defaultProvider == defaultProvider)&&(identical(other.defaultModel, defaultModel) || other.defaultModel == defaultModel)&&(identical(other.summaryProvider, summaryProvider) || other.summaryProvider == summaryProvider)&&(identical(other.summaryModel, summaryModel) || other.summaryModel == summaryModel)&&(identical(other.temperature, temperature) || other.temperature == temperature)&&(identical(other.summaryDepth, summaryDepth) || other.summaryDepth == summaryDepth)&&(identical(other.autoExtractConcepts, autoExtractConcepts) || other.autoExtractConcepts == autoExtractConcepts)&&(identical(other.autoDetectCrossRefs, autoDetectCrossRefs) || other.autoDetectCrossRefs == autoDetectCrossRefs)&&(identical(other.maxApiRequestsPerHour, maxApiRequestsPerHour) || other.maxApiRequestsPerHour == maxApiRequestsPerHour)&&(identical(other.processOnlyWhenIdle, processOnlyWhenIdle) || other.processOnlyWhenIdle == processOnlyWhenIdle)&&(identical(other.maxTokensPerDay, maxTokensPerDay) || other.maxTokensPerDay == maxTokensPerDay)&&(identical(other.maxCostUsdPerMonth, maxCostUsdPerMonth) || other.maxCostUsdPerMonth == maxCostUsdPerMonth)&&(identical(other.confirmBeforeBatchAi, confirmBeforeBatchAi) || other.confirmBeforeBatchAi == confirmBeforeBatchAi)&&(identical(other.minSecondsBetweenCalls, minSecondsBetweenCalls) || other.minSecondsBetweenCalls == minSecondsBetweenCalls)&&(identical(other.maxCallsPerMinute, maxCallsPerMinute) || other.maxCallsPerMinute == maxCallsPerMinute)&&(identical(other.circuitBreakerEnabled, circuitBreakerEnabled) || other.circuitBreakerEnabled == circuitBreakerEnabled));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,defaultProvider,defaultModel,summaryProvider,summaryModel,temperature,summaryDepth,autoExtractConcepts,autoDetectCrossRefs,maxApiRequestsPerHour,processOnlyWhenIdle);
+int get hashCode => Object.hash(runtimeType,defaultProvider,defaultModel,summaryProvider,summaryModel,temperature,summaryDepth,autoExtractConcepts,autoDetectCrossRefs,maxApiRequestsPerHour,processOnlyWhenIdle,maxTokensPerDay,maxCostUsdPerMonth,confirmBeforeBatchAi,minSecondsBetweenCalls,maxCallsPerMinute,circuitBreakerEnabled);
 
 @override
 String toString() {
-  return 'ProjectSettings(defaultProvider: $defaultProvider, defaultModel: $defaultModel, summaryProvider: $summaryProvider, summaryModel: $summaryModel, temperature: $temperature, summaryDepth: $summaryDepth, autoExtractConcepts: $autoExtractConcepts, autoDetectCrossRefs: $autoDetectCrossRefs, maxApiRequestsPerHour: $maxApiRequestsPerHour, processOnlyWhenIdle: $processOnlyWhenIdle)';
+  return 'ProjectSettings(defaultProvider: $defaultProvider, defaultModel: $defaultModel, summaryProvider: $summaryProvider, summaryModel: $summaryModel, temperature: $temperature, summaryDepth: $summaryDepth, autoExtractConcepts: $autoExtractConcepts, autoDetectCrossRefs: $autoDetectCrossRefs, maxApiRequestsPerHour: $maxApiRequestsPerHour, processOnlyWhenIdle: $processOnlyWhenIdle, maxTokensPerDay: $maxTokensPerDay, maxCostUsdPerMonth: $maxCostUsdPerMonth, confirmBeforeBatchAi: $confirmBeforeBatchAi, minSecondsBetweenCalls: $minSecondsBetweenCalls, maxCallsPerMinute: $maxCallsPerMinute, circuitBreakerEnabled: $circuitBreakerEnabled)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $ProjectSettingsCopyWith<$Res>  {
   factory $ProjectSettingsCopyWith(ProjectSettings value, $Res Function(ProjectSettings) _then) = _$ProjectSettingsCopyWithImpl;
 @useResult
 $Res call({
- String defaultProvider, String defaultModel, String summaryProvider, String summaryModel, double temperature, int summaryDepth, bool autoExtractConcepts, bool autoDetectCrossRefs, int maxApiRequestsPerHour, bool processOnlyWhenIdle
+ String defaultProvider, String defaultModel, String summaryProvider, String summaryModel, double temperature, int summaryDepth, bool autoExtractConcepts, bool autoDetectCrossRefs, int maxApiRequestsPerHour, bool processOnlyWhenIdle, int maxTokensPerDay, double maxCostUsdPerMonth, bool confirmBeforeBatchAi, double minSecondsBetweenCalls, int maxCallsPerMinute, bool circuitBreakerEnabled
 });
 
 
@@ -65,7 +65,7 @@ class _$ProjectSettingsCopyWithImpl<$Res>
 
 /// Create a copy of ProjectSettings
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? defaultProvider = null,Object? defaultModel = null,Object? summaryProvider = null,Object? summaryModel = null,Object? temperature = null,Object? summaryDepth = null,Object? autoExtractConcepts = null,Object? autoDetectCrossRefs = null,Object? maxApiRequestsPerHour = null,Object? processOnlyWhenIdle = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? defaultProvider = null,Object? defaultModel = null,Object? summaryProvider = null,Object? summaryModel = null,Object? temperature = null,Object? summaryDepth = null,Object? autoExtractConcepts = null,Object? autoDetectCrossRefs = null,Object? maxApiRequestsPerHour = null,Object? processOnlyWhenIdle = null,Object? maxTokensPerDay = null,Object? maxCostUsdPerMonth = null,Object? confirmBeforeBatchAi = null,Object? minSecondsBetweenCalls = null,Object? maxCallsPerMinute = null,Object? circuitBreakerEnabled = null,}) {
   return _then(_self.copyWith(
 defaultProvider: null == defaultProvider ? _self.defaultProvider : defaultProvider // ignore: cast_nullable_to_non_nullable
 as String,defaultModel: null == defaultModel ? _self.defaultModel : defaultModel // ignore: cast_nullable_to_non_nullable
@@ -77,6 +77,12 @@ as int,autoExtractConcepts: null == autoExtractConcepts ? _self.autoExtractConce
 as bool,autoDetectCrossRefs: null == autoDetectCrossRefs ? _self.autoDetectCrossRefs : autoDetectCrossRefs // ignore: cast_nullable_to_non_nullable
 as bool,maxApiRequestsPerHour: null == maxApiRequestsPerHour ? _self.maxApiRequestsPerHour : maxApiRequestsPerHour // ignore: cast_nullable_to_non_nullable
 as int,processOnlyWhenIdle: null == processOnlyWhenIdle ? _self.processOnlyWhenIdle : processOnlyWhenIdle // ignore: cast_nullable_to_non_nullable
+as bool,maxTokensPerDay: null == maxTokensPerDay ? _self.maxTokensPerDay : maxTokensPerDay // ignore: cast_nullable_to_non_nullable
+as int,maxCostUsdPerMonth: null == maxCostUsdPerMonth ? _self.maxCostUsdPerMonth : maxCostUsdPerMonth // ignore: cast_nullable_to_non_nullable
+as double,confirmBeforeBatchAi: null == confirmBeforeBatchAi ? _self.confirmBeforeBatchAi : confirmBeforeBatchAi // ignore: cast_nullable_to_non_nullable
+as bool,minSecondsBetweenCalls: null == minSecondsBetweenCalls ? _self.minSecondsBetweenCalls : minSecondsBetweenCalls // ignore: cast_nullable_to_non_nullable
+as double,maxCallsPerMinute: null == maxCallsPerMinute ? _self.maxCallsPerMinute : maxCallsPerMinute // ignore: cast_nullable_to_non_nullable
+as int,circuitBreakerEnabled: null == circuitBreakerEnabled ? _self.circuitBreakerEnabled : circuitBreakerEnabled // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
 }
@@ -162,10 +168,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String defaultProvider,  String defaultModel,  String summaryProvider,  String summaryModel,  double temperature,  int summaryDepth,  bool autoExtractConcepts,  bool autoDetectCrossRefs,  int maxApiRequestsPerHour,  bool processOnlyWhenIdle)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String defaultProvider,  String defaultModel,  String summaryProvider,  String summaryModel,  double temperature,  int summaryDepth,  bool autoExtractConcepts,  bool autoDetectCrossRefs,  int maxApiRequestsPerHour,  bool processOnlyWhenIdle,  int maxTokensPerDay,  double maxCostUsdPerMonth,  bool confirmBeforeBatchAi,  double minSecondsBetweenCalls,  int maxCallsPerMinute,  bool circuitBreakerEnabled)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProjectSettings() when $default != null:
-return $default(_that.defaultProvider,_that.defaultModel,_that.summaryProvider,_that.summaryModel,_that.temperature,_that.summaryDepth,_that.autoExtractConcepts,_that.autoDetectCrossRefs,_that.maxApiRequestsPerHour,_that.processOnlyWhenIdle);case _:
+return $default(_that.defaultProvider,_that.defaultModel,_that.summaryProvider,_that.summaryModel,_that.temperature,_that.summaryDepth,_that.autoExtractConcepts,_that.autoDetectCrossRefs,_that.maxApiRequestsPerHour,_that.processOnlyWhenIdle,_that.maxTokensPerDay,_that.maxCostUsdPerMonth,_that.confirmBeforeBatchAi,_that.minSecondsBetweenCalls,_that.maxCallsPerMinute,_that.circuitBreakerEnabled);case _:
   return orElse();
 
 }
@@ -183,10 +189,10 @@ return $default(_that.defaultProvider,_that.defaultModel,_that.summaryProvider,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String defaultProvider,  String defaultModel,  String summaryProvider,  String summaryModel,  double temperature,  int summaryDepth,  bool autoExtractConcepts,  bool autoDetectCrossRefs,  int maxApiRequestsPerHour,  bool processOnlyWhenIdle)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String defaultProvider,  String defaultModel,  String summaryProvider,  String summaryModel,  double temperature,  int summaryDepth,  bool autoExtractConcepts,  bool autoDetectCrossRefs,  int maxApiRequestsPerHour,  bool processOnlyWhenIdle,  int maxTokensPerDay,  double maxCostUsdPerMonth,  bool confirmBeforeBatchAi,  double minSecondsBetweenCalls,  int maxCallsPerMinute,  bool circuitBreakerEnabled)  $default,) {final _that = this;
 switch (_that) {
 case _ProjectSettings():
-return $default(_that.defaultProvider,_that.defaultModel,_that.summaryProvider,_that.summaryModel,_that.temperature,_that.summaryDepth,_that.autoExtractConcepts,_that.autoDetectCrossRefs,_that.maxApiRequestsPerHour,_that.processOnlyWhenIdle);case _:
+return $default(_that.defaultProvider,_that.defaultModel,_that.summaryProvider,_that.summaryModel,_that.temperature,_that.summaryDepth,_that.autoExtractConcepts,_that.autoDetectCrossRefs,_that.maxApiRequestsPerHour,_that.processOnlyWhenIdle,_that.maxTokensPerDay,_that.maxCostUsdPerMonth,_that.confirmBeforeBatchAi,_that.minSecondsBetweenCalls,_that.maxCallsPerMinute,_that.circuitBreakerEnabled);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -203,10 +209,10 @@ return $default(_that.defaultProvider,_that.defaultModel,_that.summaryProvider,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String defaultProvider,  String defaultModel,  String summaryProvider,  String summaryModel,  double temperature,  int summaryDepth,  bool autoExtractConcepts,  bool autoDetectCrossRefs,  int maxApiRequestsPerHour,  bool processOnlyWhenIdle)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String defaultProvider,  String defaultModel,  String summaryProvider,  String summaryModel,  double temperature,  int summaryDepth,  bool autoExtractConcepts,  bool autoDetectCrossRefs,  int maxApiRequestsPerHour,  bool processOnlyWhenIdle,  int maxTokensPerDay,  double maxCostUsdPerMonth,  bool confirmBeforeBatchAi,  double minSecondsBetweenCalls,  int maxCallsPerMinute,  bool circuitBreakerEnabled)?  $default,) {final _that = this;
 switch (_that) {
 case _ProjectSettings() when $default != null:
-return $default(_that.defaultProvider,_that.defaultModel,_that.summaryProvider,_that.summaryModel,_that.temperature,_that.summaryDepth,_that.autoExtractConcepts,_that.autoDetectCrossRefs,_that.maxApiRequestsPerHour,_that.processOnlyWhenIdle);case _:
+return $default(_that.defaultProvider,_that.defaultModel,_that.summaryProvider,_that.summaryModel,_that.temperature,_that.summaryDepth,_that.autoExtractConcepts,_that.autoDetectCrossRefs,_that.maxApiRequestsPerHour,_that.processOnlyWhenIdle,_that.maxTokensPerDay,_that.maxCostUsdPerMonth,_that.confirmBeforeBatchAi,_that.minSecondsBetweenCalls,_that.maxCallsPerMinute,_that.circuitBreakerEnabled);case _:
   return null;
 
 }
@@ -218,7 +224,7 @@ return $default(_that.defaultProvider,_that.defaultModel,_that.summaryProvider,_
 @JsonSerializable()
 
 class _ProjectSettings implements ProjectSettings {
-  const _ProjectSettings({this.defaultProvider = 'openrouter', this.defaultModel = 'anthropic/claude-sonnet-4-6', this.summaryProvider = 'openrouter', this.summaryModel = 'anthropic/claude-haiku-4-5', this.temperature = 0.7, this.summaryDepth = 2, this.autoExtractConcepts = false, this.autoDetectCrossRefs = false, this.maxApiRequestsPerHour = 30, this.processOnlyWhenIdle = false});
+  const _ProjectSettings({this.defaultProvider = 'openrouter', this.defaultModel = 'anthropic/claude-sonnet-4-6', this.summaryProvider = 'openrouter', this.summaryModel = 'anthropic/claude-haiku-4-5', this.temperature = 0.7, this.summaryDepth = 2, this.autoExtractConcepts = false, this.autoDetectCrossRefs = false, this.maxApiRequestsPerHour = 30, this.processOnlyWhenIdle = false, this.maxTokensPerDay = 500000, this.maxCostUsdPerMonth = 5.0, this.confirmBeforeBatchAi = true, this.minSecondsBetweenCalls = 1.5, this.maxCallsPerMinute = 8, this.circuitBreakerEnabled = true});
   factory _ProjectSettings.fromJson(Map<String, dynamic> json) => _$ProjectSettingsFromJson(json);
 
 @override@JsonKey() final  String defaultProvider;
@@ -231,6 +237,12 @@ class _ProjectSettings implements ProjectSettings {
 @override@JsonKey() final  bool autoDetectCrossRefs;
 @override@JsonKey() final  int maxApiRequestsPerHour;
 @override@JsonKey() final  bool processOnlyWhenIdle;
+@override@JsonKey() final  int maxTokensPerDay;
+@override@JsonKey() final  double maxCostUsdPerMonth;
+@override@JsonKey() final  bool confirmBeforeBatchAi;
+@override@JsonKey() final  double minSecondsBetweenCalls;
+@override@JsonKey() final  int maxCallsPerMinute;
+@override@JsonKey() final  bool circuitBreakerEnabled;
 
 /// Create a copy of ProjectSettings
 /// with the given fields replaced by the non-null parameter values.
@@ -245,16 +257,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProjectSettings&&(identical(other.defaultProvider, defaultProvider) || other.defaultProvider == defaultProvider)&&(identical(other.defaultModel, defaultModel) || other.defaultModel == defaultModel)&&(identical(other.summaryProvider, summaryProvider) || other.summaryProvider == summaryProvider)&&(identical(other.summaryModel, summaryModel) || other.summaryModel == summaryModel)&&(identical(other.temperature, temperature) || other.temperature == temperature)&&(identical(other.summaryDepth, summaryDepth) || other.summaryDepth == summaryDepth)&&(identical(other.autoExtractConcepts, autoExtractConcepts) || other.autoExtractConcepts == autoExtractConcepts)&&(identical(other.autoDetectCrossRefs, autoDetectCrossRefs) || other.autoDetectCrossRefs == autoDetectCrossRefs)&&(identical(other.maxApiRequestsPerHour, maxApiRequestsPerHour) || other.maxApiRequestsPerHour == maxApiRequestsPerHour)&&(identical(other.processOnlyWhenIdle, processOnlyWhenIdle) || other.processOnlyWhenIdle == processOnlyWhenIdle));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProjectSettings&&(identical(other.defaultProvider, defaultProvider) || other.defaultProvider == defaultProvider)&&(identical(other.defaultModel, defaultModel) || other.defaultModel == defaultModel)&&(identical(other.summaryProvider, summaryProvider) || other.summaryProvider == summaryProvider)&&(identical(other.summaryModel, summaryModel) || other.summaryModel == summaryModel)&&(identical(other.temperature, temperature) || other.temperature == temperature)&&(identical(other.summaryDepth, summaryDepth) || other.summaryDepth == summaryDepth)&&(identical(other.autoExtractConcepts, autoExtractConcepts) || other.autoExtractConcepts == autoExtractConcepts)&&(identical(other.autoDetectCrossRefs, autoDetectCrossRefs) || other.autoDetectCrossRefs == autoDetectCrossRefs)&&(identical(other.maxApiRequestsPerHour, maxApiRequestsPerHour) || other.maxApiRequestsPerHour == maxApiRequestsPerHour)&&(identical(other.processOnlyWhenIdle, processOnlyWhenIdle) || other.processOnlyWhenIdle == processOnlyWhenIdle)&&(identical(other.maxTokensPerDay, maxTokensPerDay) || other.maxTokensPerDay == maxTokensPerDay)&&(identical(other.maxCostUsdPerMonth, maxCostUsdPerMonth) || other.maxCostUsdPerMonth == maxCostUsdPerMonth)&&(identical(other.confirmBeforeBatchAi, confirmBeforeBatchAi) || other.confirmBeforeBatchAi == confirmBeforeBatchAi)&&(identical(other.minSecondsBetweenCalls, minSecondsBetweenCalls) || other.minSecondsBetweenCalls == minSecondsBetweenCalls)&&(identical(other.maxCallsPerMinute, maxCallsPerMinute) || other.maxCallsPerMinute == maxCallsPerMinute)&&(identical(other.circuitBreakerEnabled, circuitBreakerEnabled) || other.circuitBreakerEnabled == circuitBreakerEnabled));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,defaultProvider,defaultModel,summaryProvider,summaryModel,temperature,summaryDepth,autoExtractConcepts,autoDetectCrossRefs,maxApiRequestsPerHour,processOnlyWhenIdle);
+int get hashCode => Object.hash(runtimeType,defaultProvider,defaultModel,summaryProvider,summaryModel,temperature,summaryDepth,autoExtractConcepts,autoDetectCrossRefs,maxApiRequestsPerHour,processOnlyWhenIdle,maxTokensPerDay,maxCostUsdPerMonth,confirmBeforeBatchAi,minSecondsBetweenCalls,maxCallsPerMinute,circuitBreakerEnabled);
 
 @override
 String toString() {
-  return 'ProjectSettings(defaultProvider: $defaultProvider, defaultModel: $defaultModel, summaryProvider: $summaryProvider, summaryModel: $summaryModel, temperature: $temperature, summaryDepth: $summaryDepth, autoExtractConcepts: $autoExtractConcepts, autoDetectCrossRefs: $autoDetectCrossRefs, maxApiRequestsPerHour: $maxApiRequestsPerHour, processOnlyWhenIdle: $processOnlyWhenIdle)';
+  return 'ProjectSettings(defaultProvider: $defaultProvider, defaultModel: $defaultModel, summaryProvider: $summaryProvider, summaryModel: $summaryModel, temperature: $temperature, summaryDepth: $summaryDepth, autoExtractConcepts: $autoExtractConcepts, autoDetectCrossRefs: $autoDetectCrossRefs, maxApiRequestsPerHour: $maxApiRequestsPerHour, processOnlyWhenIdle: $processOnlyWhenIdle, maxTokensPerDay: $maxTokensPerDay, maxCostUsdPerMonth: $maxCostUsdPerMonth, confirmBeforeBatchAi: $confirmBeforeBatchAi, minSecondsBetweenCalls: $minSecondsBetweenCalls, maxCallsPerMinute: $maxCallsPerMinute, circuitBreakerEnabled: $circuitBreakerEnabled)';
 }
 
 
@@ -265,7 +277,7 @@ abstract mixin class _$ProjectSettingsCopyWith<$Res> implements $ProjectSettings
   factory _$ProjectSettingsCopyWith(_ProjectSettings value, $Res Function(_ProjectSettings) _then) = __$ProjectSettingsCopyWithImpl;
 @override @useResult
 $Res call({
- String defaultProvider, String defaultModel, String summaryProvider, String summaryModel, double temperature, int summaryDepth, bool autoExtractConcepts, bool autoDetectCrossRefs, int maxApiRequestsPerHour, bool processOnlyWhenIdle
+ String defaultProvider, String defaultModel, String summaryProvider, String summaryModel, double temperature, int summaryDepth, bool autoExtractConcepts, bool autoDetectCrossRefs, int maxApiRequestsPerHour, bool processOnlyWhenIdle, int maxTokensPerDay, double maxCostUsdPerMonth, bool confirmBeforeBatchAi, double minSecondsBetweenCalls, int maxCallsPerMinute, bool circuitBreakerEnabled
 });
 
 
@@ -282,7 +294,7 @@ class __$ProjectSettingsCopyWithImpl<$Res>
 
 /// Create a copy of ProjectSettings
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? defaultProvider = null,Object? defaultModel = null,Object? summaryProvider = null,Object? summaryModel = null,Object? temperature = null,Object? summaryDepth = null,Object? autoExtractConcepts = null,Object? autoDetectCrossRefs = null,Object? maxApiRequestsPerHour = null,Object? processOnlyWhenIdle = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? defaultProvider = null,Object? defaultModel = null,Object? summaryProvider = null,Object? summaryModel = null,Object? temperature = null,Object? summaryDepth = null,Object? autoExtractConcepts = null,Object? autoDetectCrossRefs = null,Object? maxApiRequestsPerHour = null,Object? processOnlyWhenIdle = null,Object? maxTokensPerDay = null,Object? maxCostUsdPerMonth = null,Object? confirmBeforeBatchAi = null,Object? minSecondsBetweenCalls = null,Object? maxCallsPerMinute = null,Object? circuitBreakerEnabled = null,}) {
   return _then(_ProjectSettings(
 defaultProvider: null == defaultProvider ? _self.defaultProvider : defaultProvider // ignore: cast_nullable_to_non_nullable
 as String,defaultModel: null == defaultModel ? _self.defaultModel : defaultModel // ignore: cast_nullable_to_non_nullable
@@ -294,6 +306,12 @@ as int,autoExtractConcepts: null == autoExtractConcepts ? _self.autoExtractConce
 as bool,autoDetectCrossRefs: null == autoDetectCrossRefs ? _self.autoDetectCrossRefs : autoDetectCrossRefs // ignore: cast_nullable_to_non_nullable
 as bool,maxApiRequestsPerHour: null == maxApiRequestsPerHour ? _self.maxApiRequestsPerHour : maxApiRequestsPerHour // ignore: cast_nullable_to_non_nullable
 as int,processOnlyWhenIdle: null == processOnlyWhenIdle ? _self.processOnlyWhenIdle : processOnlyWhenIdle // ignore: cast_nullable_to_non_nullable
+as bool,maxTokensPerDay: null == maxTokensPerDay ? _self.maxTokensPerDay : maxTokensPerDay // ignore: cast_nullable_to_non_nullable
+as int,maxCostUsdPerMonth: null == maxCostUsdPerMonth ? _self.maxCostUsdPerMonth : maxCostUsdPerMonth // ignore: cast_nullable_to_non_nullable
+as double,confirmBeforeBatchAi: null == confirmBeforeBatchAi ? _self.confirmBeforeBatchAi : confirmBeforeBatchAi // ignore: cast_nullable_to_non_nullable
+as bool,minSecondsBetweenCalls: null == minSecondsBetweenCalls ? _self.minSecondsBetweenCalls : minSecondsBetweenCalls // ignore: cast_nullable_to_non_nullable
+as double,maxCallsPerMinute: null == maxCallsPerMinute ? _self.maxCallsPerMinute : maxCallsPerMinute // ignore: cast_nullable_to_non_nullable
+as int,circuitBreakerEnabled: null == circuitBreakerEnabled ? _self.circuitBreakerEnabled : circuitBreakerEnabled // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
 }

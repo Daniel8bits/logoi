@@ -1,0 +1,7 @@
+{
+  "elements": {},
+  "imports": [
+    "package:riverpod_annotation/riverpod_annotation.dart",
+    "package:logoi/core/services/idle_detector.dart"
+  ]
+}

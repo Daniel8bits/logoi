@@ -1,0 +1,10 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:flutter_riverpod/flutter_riverpod.dart",
+    "package:logoi/core/providers/ai_providers.dart",
+    "package:logoi/features/project/models/project_settings.dart",
+    "package:logoi/features/project/providers/project_providers.dart"
+  ]
+}

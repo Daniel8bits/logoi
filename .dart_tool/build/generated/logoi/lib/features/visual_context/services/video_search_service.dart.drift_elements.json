@@ -1,0 +1,1 @@
+{"valid_import":true,"imports":[{"uri":"package:http/http.dart","transitive":false},{"uri":"package:url_launcher/url_launcher.dart","transitive":false},{"uri":"package:logoi/features/settings/repositories/media_settings_repository.dart","transitive":false},{"uri":"package:logoi/features/visual_context/models/media_reference.dart","transitive":false}],"elements":[]}

@@ -1,8 +1,10 @@
 import 'dart:convert';
 
+import 'package:drift/drift.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/database/database.dart';
+import '../../../core/providers/ai_providers.dart';
 import '../../../core/providers/core_providers.dart';
 import '../models/project_settings.dart';
 import '../models/project_summary.dart';
@@ -61,6 +63,24 @@ class CurrentProject extends _$CurrentProject {
   Future<void> close() async {
     final current = state;
     state = null;
+    ref.read(projectThrottlerProvider.notifier).reset();
     await current?.db.close();
+  }
+
+  Future<void> updateSettings(ProjectSettings settings) async {
+    final current = state;
+    if (current == null) return;
+    await current.db.projectDao.updateProject(
+      current.project.id,
+      ProjectsCompanion(
+        settings: Value(jsonEncode(settings.toJson())),
+        updatedAt: Value(DateTime.now().millisecondsSinceEpoch),
+      ),
+    );
+    state = ProjectContext(
+      project: current.project,
+      settings: settings,
+      db: current.db,
+    );
   }
 }

@@ -8,9 +8,13 @@ import '../database/daos/ai_dao.dart';
 import '../database/database.dart';
 import '../utils/result.dart';
 import 'errors.dart';
+import 'guard_limits.dart';
 import 'models.dart';
+import 'pricing.dart';
 import 'prompts/prompts.dart';
 import 'provider.dart';
+import 'request_throttler.dart';
+import 'usage_guard.dart';
 
 /// Routing target: which provider/model handles a task.
 class AITaskRoute {
@@ -28,18 +32,11 @@ class AIRouterConfig {
     this.taskOverrides = const {},
   });
 
-  /// Global/project default.
   final AITaskRoute defaultRoute;
-
-  /// Cheap model for batch summaries (docs/01_OVERVIEW.md §4.4).
   final AITaskRoute? summaryRoute;
-
-  /// Explicit per-task overrides configured by the user.
   final Map<AITask, AITaskRoute> taskOverrides;
 }
 
-/// Creates a ready-to-use provider for a route (injected so the router
-/// stays testable and free of secure-storage concerns).
 typedef ProviderFactory = Future<AIProvider> Function(AITaskRoute route);
 
 /// Single entry point for every AI call in the app
@@ -50,21 +47,26 @@ class AIRouter {
     required ProviderFactory providerFactory,
     required AICacheStrategy cache,
     required AiDao aiDao,
+    required AIRequestThrottler throttler,
+    required AIUsageGuard usageGuard,
     this.projectId,
   })  : _config = config,
         _providerFactory = providerFactory,
         _cache = cache,
-        _aiDao = aiDao;
+        _aiDao = aiDao,
+        _throttler = throttler,
+        _usageGuard = usageGuard;
 
   final AIRouterConfig _config;
   final ProviderFactory _providerFactory;
   final AICacheStrategy _cache;
   final AiDao _aiDao;
+  final AIRequestThrottler _throttler;
+  final AIUsageGuard _usageGuard;
   final String? projectId;
 
   static const _uuid = Uuid();
 
-  /// Tasks whose responses are conversational and therefore never cached.
   static const _uncachedTasks = {AITask.chat, AITask.socratic};
 
   static const _summaryTasks = {
@@ -74,8 +76,11 @@ class AIRouter {
     AITask.historyCompression,
   };
 
-  /// Resolution order: per-task override → summary route (batch tasks) →
-  /// default route.
+  final _inFlightComplete = <String, Future<Result<String, AIFailure>>>{};
+
+  AIRequestThrottler get throttler => _throttler;
+  AIUsageGuard get usageGuard => _usageGuard;
+
   AITaskRoute resolveRoute(AITask task) {
     final override = _config.taskOverrides[task];
     if (override != null) return override;
@@ -96,28 +101,42 @@ class AIRouter {
     int maxTokens = 2048,
     String? documentId,
   }) async* {
-    final provider = await resolveProvider(task);
-    final buffer = StringBuffer();
-    await for (final chunk in provider.streamCompletion(
-      messages: messages,
-      temperature: temperature,
-      maxTokens: maxTokens,
-    )) {
-      buffer.write(chunk);
-      yield chunk;
+    final route = resolveRoute(task);
+    final input = messages.map((m) => m.content).join('\n');
+    final dedupKey = _dedupKey(task, route.model, input);
+
+    await _guardRealCall();
+    final handle = _throttler.acquire(dedupKey: dedupKey);
+    await handle.waitIfDuplicate;
+
+    try {
+      final provider = await _providerFactory(route);
+      final buffer = StringBuffer();
+      await for (final chunk in provider.streamCompletion(
+        messages: messages,
+        temperature: temperature,
+        maxTokens: maxTokens,
+      )) {
+        buffer.write(chunk);
+        yield chunk;
+      }
+      await _logUsage(
+        task: task,
+        provider: provider,
+        input: input,
+        output: buffer.toString(),
+        cacheHit: false,
+        documentId: documentId,
+      );
+      _throttler.recordSuccess();
+    } on AIError {
+      _throttler.recordError();
+      rethrow;
+    } finally {
+      handle.release();
     }
-    await _logUsage(
-      task: task,
-      provider: provider,
-      input: messages.map((m) => m.content).join('\n'),
-      output: buffer.toString(),
-      cacheHit: false,
-      documentId: documentId,
-    );
   }
 
-  /// Complete responses (batch summaries, flashcards). Cached when the
-  /// task allows it (docs/05_PROCESSING.md §8).
   Future<Result<String, AIFailure>> complete({
     required AITask task,
     required List<AIChatMessage> messages,
@@ -131,6 +150,7 @@ class AIRouter {
     final input = messages.map((m) => m.content).join('\n');
     final promptVersion = Prompts.forTask(task).version;
     final cacheable = !_uncachedTasks.contains(task);
+    final dedupKey = _dedupKey(task, route.model, input);
 
     if (cacheable && !forceRegenerate) {
       final cached = await _cache.lookup(
@@ -153,8 +173,49 @@ class AIRouter {
       }
     }
 
-    final provider = await _providerFactory(route);
+    final existing = _inFlightComplete[dedupKey];
+    if (existing != null) return existing;
+
+    final future = _completeInternal(
+      task: task,
+      route: route,
+      messages: messages,
+      input: input,
+      promptVersion: promptVersion,
+      cacheable: cacheable,
+      temperature: temperature,
+      maxTokens: maxTokens,
+      responseFormat: responseFormat,
+      documentId: documentId,
+      dedupKey: dedupKey,
+    );
+    _inFlightComplete[dedupKey] = future;
     try {
+      return await future;
+    } finally {
+      _inFlightComplete.remove(dedupKey);
+    }
+  }
+
+  Future<Result<String, AIFailure>> _completeInternal({
+    required AITask task,
+    required AITaskRoute route,
+    required List<AIChatMessage> messages,
+    required String input,
+    required String promptVersion,
+    required bool cacheable,
+    required double temperature,
+    required int maxTokens,
+    Map<String, dynamic>? responseFormat,
+    String? documentId,
+    required String dedupKey,
+  }) async {
+    await _guardRealCall();
+    final handle = _throttler.acquire(dedupKey: dedupKey);
+    await handle.waitIfDuplicate;
+
+    try {
+      final provider = await _providerFactory(route);
       final response = await _completeWithRetry(
         provider,
         messages: messages,
@@ -182,13 +243,35 @@ class AIRouter {
         cacheHit: false,
         documentId: documentId,
       );
+      _throttler.recordSuccess();
       return Result.ok(response);
-    } on AIError catch (e) {
+    } on QuotaExceededError catch (e) {
       return Result.error(AIFailure(e.message));
+    } on ThrottleExceededError catch (e) {
+      return Result.error(AIFailure(e.message));
+    } on InsufficientCreditsError catch (e) {
+      return Result.error(AIFailure(e.message));
+    } on AIError catch (e) {
+      _throttler.recordError();
+      return Result.error(AIFailure(e.message));
+    } finally {
+      handle.release();
     }
   }
 
-  /// Automatic retry for rate limits (docs/04_AI_LAYER.md §10).
+  Future<void> _guardRealCall() async {
+    _throttler.checkAllowed();
+    await _usageGuard.checkAllowed();
+  }
+
+  String _dedupKey(AITask task, String model, String input) =>
+      AICacheStrategy.cacheKey(
+        mode: task.name,
+        promptVersion: 'inflight',
+        inputHash: AICacheStrategy.inputHash(input),
+        model: model,
+      );
+
   Future<String> _completeWithRetry(
     AIProvider provider, {
     required List<AIChatMessage> messages,
@@ -215,6 +298,12 @@ class AIRouter {
         responseFormat: responseFormat,
         retriesLeft: retriesLeft - 1,
       );
+    } on QuotaExceededError {
+      rethrow;
+    } on ThrottleExceededError {
+      rethrow;
+    } on InsufficientCreditsError {
+      rethrow;
     }
   }
 
@@ -227,20 +316,31 @@ class AIRouter {
     required String output,
     required bool cacheHit,
     String? documentId,
-  }) =>
-      _aiDao.logUsage(ApiUsageLogCompanion(
-        id: Value(_uuid.v4()),
-        projectId: Value(projectId),
-        documentId: Value(documentId),
-        provider: Value(provider?.id ?? providerId ?? 'unknown'),
-        model: Value(provider?.model ?? model ?? 'unknown'),
-        feature: Value(task.name),
-        inputTokens: Value(estimateTokens(input)),
-        outputTokens: Value(estimateTokens(output)),
-        cacheHit: Value(cacheHit),
-        calledAt: Value(DateTime.now().millisecondsSinceEpoch),
-      ));
+  }) {
+    final resolvedModel = provider?.model ?? model ?? 'unknown';
+    final inTok = estimateTokens(input);
+    final outTok = estimateTokens(output);
+    final cost = cacheHit
+        ? 0.0
+        : ModelPricing.estimateCostUsd(
+            model: resolvedModel,
+            inputTokens: inTok,
+            outputTokens: outTok,
+          );
+    return _aiDao.logUsage(ApiUsageLogCompanion(
+      id: Value(_uuid.v4()),
+      projectId: Value(projectId),
+      documentId: Value(documentId),
+      provider: Value(provider?.id ?? providerId ?? 'unknown'),
+      model: Value(resolvedModel),
+      feature: Value(task.name),
+      inputTokens: Value(inTok),
+      outputTokens: Value(outTok),
+      cacheHit: Value(cacheHit),
+      costUsd: Value(cost),
+      calledAt: Value(DateTime.now().millisecondsSinceEpoch),
+    ));
+  }
 
-  /// Rough token estimate (~4 chars/token) used for the cost dashboard.
   static int estimateTokens(String text) => (text.length / 4).ceil();
 }

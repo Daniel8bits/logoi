@@ -20,6 +20,13 @@ _ProjectSettings _$ProjectSettingsFromJson(
   autoDetectCrossRefs: json['autoDetectCrossRefs'] as bool? ?? false,
   maxApiRequestsPerHour: (json['maxApiRequestsPerHour'] as num?)?.toInt() ?? 30,
   processOnlyWhenIdle: json['processOnlyWhenIdle'] as bool? ?? false,
+  maxTokensPerDay: (json['maxTokensPerDay'] as num?)?.toInt() ?? 500000,
+  maxCostUsdPerMonth: (json['maxCostUsdPerMonth'] as num?)?.toDouble() ?? 5.0,
+  confirmBeforeBatchAi: json['confirmBeforeBatchAi'] as bool? ?? true,
+  minSecondsBetweenCalls:
+      (json['minSecondsBetweenCalls'] as num?)?.toDouble() ?? 1.5,
+  maxCallsPerMinute: (json['maxCallsPerMinute'] as num?)?.toInt() ?? 8,
+  circuitBreakerEnabled: json['circuitBreakerEnabled'] as bool? ?? true,
 );
 
 Map<String, dynamic> _$ProjectSettingsToJson(_ProjectSettings instance) =>
@@ -34,4 +41,10 @@ Map<String, dynamic> _$ProjectSettingsToJson(_ProjectSettings instance) =>
       'autoDetectCrossRefs': instance.autoDetectCrossRefs,
       'maxApiRequestsPerHour': instance.maxApiRequestsPerHour,
       'processOnlyWhenIdle': instance.processOnlyWhenIdle,
+      'maxTokensPerDay': instance.maxTokensPerDay,
+      'maxCostUsdPerMonth': instance.maxCostUsdPerMonth,
+      'confirmBeforeBatchAi': instance.confirmBeforeBatchAi,
+      'minSecondsBetweenCalls': instance.minSecondsBetweenCalls,
+      'maxCallsPerMinute': instance.maxCallsPerMinute,
+      'circuitBreakerEnabled': instance.circuitBreakerEnabled,
     };

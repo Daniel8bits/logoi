@@ -6,6 +6,7 @@ import 'daos/annotation_dao.dart';
 import 'daos/chat_dao.dart';
 import 'daos/concept_dao.dart';
 import 'daos/document_dao.dart';
+import 'daos/media_dao.dart';
 import 'daos/project_dao.dart';
 import 'daos/search_dao.dart';
 import 'tables/ai_tables.dart';
@@ -13,6 +14,7 @@ import 'tables/annotation_tables.dart';
 import 'tables/chat_tables.dart';
 import 'tables/document_tables.dart';
 import 'tables/knowledge_tables.dart';
+import 'tables/media_tables.dart';
 import 'tables/project_tables.dart';
 
 part 'database.drift.dart';
@@ -40,6 +42,7 @@ part 'database.drift.dart';
     AiProviders,
     AiResponseCache,
     ApiUsageLog,
+    MediaReferenceCache,
     ReadingSessions,
   ],
   daos: [
@@ -49,6 +52,7 @@ part 'database.drift.dart';
     ChatDao,
     ConceptDao,
     AiDao,
+    MediaDao,
     SearchDao,
   ],
 )

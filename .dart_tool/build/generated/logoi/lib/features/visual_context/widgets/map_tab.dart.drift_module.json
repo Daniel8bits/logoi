@@ -1,0 +1,9 @@
+{
+  "elements": {},
+  "imports": [
+    "package:flutter/material.dart",
+    "package:flutter_map/flutter_map.dart",
+    "package:latlong2/latlong.dart",
+    "package:logoi/features/visual_context/models/media_reference.dart"
+  ]
+}

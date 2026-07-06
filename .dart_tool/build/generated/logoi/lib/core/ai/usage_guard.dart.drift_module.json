@@ -1,0 +1,8 @@
+{
+  "elements": {},
+  "imports": [
+    "package:logoi/core/database/daos/ai_dao.dart",
+    "package:logoi/core/ai/errors.dart",
+    "package:logoi/core/ai/guard_limits.dart"
+  ]
+}

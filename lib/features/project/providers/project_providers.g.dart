@@ -89,7 +89,7 @@ final class CurrentProjectProvider
   }
 }
 
-String _$currentProjectHash() => r'77c322f567ea040948bacac55b1e4d35f08c9d8e';
+String _$currentProjectHash() => r'f7915dda6a67141d9d4979f32d84c7e0b85b439f';
 
 /// Holds the open project (docs/02_ARCHITECTURE.md — shared providers are
 /// the only cross-feature communication channel).

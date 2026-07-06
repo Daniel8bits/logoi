@@ -1,0 +1,1 @@
+{"valid_import":true,"imports":[{"uri":"package:flutter/material.dart","transitive":false},{"uri":"package:flutter_map/flutter_map.dart","transitive":false},{"uri":"package:latlong2/latlong.dart","transitive":false},{"uri":"package:logoi/features/visual_context/models/media_reference.dart","transitive":false}],"elements":[]}

@@ -11,6 +11,7 @@
     "package:logoi/features/chat/widgets/json_mode_result_dialog.dart",
     "package:logoi/features/concepts/providers/concept_providers.dart",
     "package:logoi/features/concepts/widgets/cross_ref_panel.dart",
+    "package:logoi/features/visual_context/widgets/media_reference_dialog.dart",
     "package:logoi/features/reader/models/selection.dart",
     "package:logoi/features/reader/providers/reader_providers.dart",
     "package:logoi/features/reader/widgets/right_panel.dart"

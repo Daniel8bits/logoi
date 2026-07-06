@@ -1,0 +1,8 @@
+{
+  "elements": {},
+  "imports": [
+    "package:riverpod_annotation/riverpod_annotation.dart",
+    "package:logoi/core/providers/core_providers.dart",
+    "package:logoi/features/settings/repositories/media_settings_repository.dart"
+  ]
+}

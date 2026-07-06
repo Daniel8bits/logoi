@@ -9781,6 +9781,374 @@ class ApiUsageLogCompanion extends UpdateCompanion<ApiUsageLogRow> {
   }
 }
 
+class $MediaReferenceCacheTable extends MediaReferenceCache
+    with TableInfo<$MediaReferenceCacheTable, MediaReferenceCacheRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MediaReferenceCacheTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _projectIdMeta = const VerificationMeta(
+    'projectId',
+  );
+  @override
+  late final GeneratedColumn<String> projectId = GeneratedColumn<String>(
+    'project_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'REFERENCES projects (id) ON DELETE CASCADE',
+    ),
+  );
+  static const VerificationMeta _cacheKeyMeta = const VerificationMeta(
+    'cacheKey',
+  );
+  @override
+  late final GeneratedColumn<String> cacheKey = GeneratedColumn<String>(
+    'cache_key',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    defaultConstraints: GeneratedColumn.constraintIsAlways('UNIQUE'),
+  );
+  static const VerificationMeta _payloadMeta = const VerificationMeta(
+    'payload',
+  );
+  @override
+  late final GeneratedColumn<String> payload = GeneratedColumn<String>(
+    'payload',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<int> createdAt = GeneratedColumn<int>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    projectId,
+    cacheKey,
+    payload,
+    createdAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'media_reference_cache';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<MediaReferenceCacheRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('project_id')) {
+      context.handle(
+        _projectIdMeta,
+        projectId.isAcceptableOrUnknown(data['project_id']!, _projectIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_projectIdMeta);
+    }
+    if (data.containsKey('cache_key')) {
+      context.handle(
+        _cacheKeyMeta,
+        cacheKey.isAcceptableOrUnknown(data['cache_key']!, _cacheKeyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_cacheKeyMeta);
+    }
+    if (data.containsKey('payload')) {
+      context.handle(
+        _payloadMeta,
+        payload.isAcceptableOrUnknown(data['payload']!, _payloadMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_payloadMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  MediaReferenceCacheRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MediaReferenceCacheRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      projectId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}project_id'],
+      )!,
+      cacheKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}cache_key'],
+      )!,
+      payload: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}payload'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  $MediaReferenceCacheTable createAlias(String alias) {
+    return $MediaReferenceCacheTable(attachedDatabase, alias);
+  }
+}
+
+class MediaReferenceCacheRow extends DataClass
+    implements Insertable<MediaReferenceCacheRow> {
+  final String id;
+  final String projectId;
+  final String cacheKey;
+  final String payload;
+  final int createdAt;
+  const MediaReferenceCacheRow({
+    required this.id,
+    required this.projectId,
+    required this.cacheKey,
+    required this.payload,
+    required this.createdAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['project_id'] = Variable<String>(projectId);
+    map['cache_key'] = Variable<String>(cacheKey);
+    map['payload'] = Variable<String>(payload);
+    map['created_at'] = Variable<int>(createdAt);
+    return map;
+  }
+
+  MediaReferenceCacheCompanion toCompanion(bool nullToAbsent) {
+    return MediaReferenceCacheCompanion(
+      id: Value(id),
+      projectId: Value(projectId),
+      cacheKey: Value(cacheKey),
+      payload: Value(payload),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory MediaReferenceCacheRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MediaReferenceCacheRow(
+      id: serializer.fromJson<String>(json['id']),
+      projectId: serializer.fromJson<String>(json['projectId']),
+      cacheKey: serializer.fromJson<String>(json['cacheKey']),
+      payload: serializer.fromJson<String>(json['payload']),
+      createdAt: serializer.fromJson<int>(json['createdAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'projectId': serializer.toJson<String>(projectId),
+      'cacheKey': serializer.toJson<String>(cacheKey),
+      'payload': serializer.toJson<String>(payload),
+      'createdAt': serializer.toJson<int>(createdAt),
+    };
+  }
+
+  MediaReferenceCacheRow copyWith({
+    String? id,
+    String? projectId,
+    String? cacheKey,
+    String? payload,
+    int? createdAt,
+  }) => MediaReferenceCacheRow(
+    id: id ?? this.id,
+    projectId: projectId ?? this.projectId,
+    cacheKey: cacheKey ?? this.cacheKey,
+    payload: payload ?? this.payload,
+    createdAt: createdAt ?? this.createdAt,
+  );
+  MediaReferenceCacheRow copyWithCompanion(MediaReferenceCacheCompanion data) {
+    return MediaReferenceCacheRow(
+      id: data.id.present ? data.id.value : this.id,
+      projectId: data.projectId.present ? data.projectId.value : this.projectId,
+      cacheKey: data.cacheKey.present ? data.cacheKey.value : this.cacheKey,
+      payload: data.payload.present ? data.payload.value : this.payload,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MediaReferenceCacheRow(')
+          ..write('id: $id, ')
+          ..write('projectId: $projectId, ')
+          ..write('cacheKey: $cacheKey, ')
+          ..write('payload: $payload, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, projectId, cacheKey, payload, createdAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MediaReferenceCacheRow &&
+          other.id == this.id &&
+          other.projectId == this.projectId &&
+          other.cacheKey == this.cacheKey &&
+          other.payload == this.payload &&
+          other.createdAt == this.createdAt);
+}
+
+class MediaReferenceCacheCompanion
+    extends UpdateCompanion<MediaReferenceCacheRow> {
+  final Value<String> id;
+  final Value<String> projectId;
+  final Value<String> cacheKey;
+  final Value<String> payload;
+  final Value<int> createdAt;
+  final Value<int> rowid;
+  const MediaReferenceCacheCompanion({
+    this.id = const Value.absent(),
+    this.projectId = const Value.absent(),
+    this.cacheKey = const Value.absent(),
+    this.payload = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  MediaReferenceCacheCompanion.insert({
+    required String id,
+    required String projectId,
+    required String cacheKey,
+    required String payload,
+    required int createdAt,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       projectId = Value(projectId),
+       cacheKey = Value(cacheKey),
+       payload = Value(payload),
+       createdAt = Value(createdAt);
+  static Insertable<MediaReferenceCacheRow> custom({
+    Expression<String>? id,
+    Expression<String>? projectId,
+    Expression<String>? cacheKey,
+    Expression<String>? payload,
+    Expression<int>? createdAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (projectId != null) 'project_id': projectId,
+      if (cacheKey != null) 'cache_key': cacheKey,
+      if (payload != null) 'payload': payload,
+      if (createdAt != null) 'created_at': createdAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  MediaReferenceCacheCompanion copyWith({
+    Value<String>? id,
+    Value<String>? projectId,
+    Value<String>? cacheKey,
+    Value<String>? payload,
+    Value<int>? createdAt,
+    Value<int>? rowid,
+  }) {
+    return MediaReferenceCacheCompanion(
+      id: id ?? this.id,
+      projectId: projectId ?? this.projectId,
+      cacheKey: cacheKey ?? this.cacheKey,
+      payload: payload ?? this.payload,
+      createdAt: createdAt ?? this.createdAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (projectId.present) {
+      map['project_id'] = Variable<String>(projectId.value);
+    }
+    if (cacheKey.present) {
+      map['cache_key'] = Variable<String>(cacheKey.value);
+    }
+    if (payload.present) {
+      map['payload'] = Variable<String>(payload.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<int>(createdAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MediaReferenceCacheCompanion(')
+          ..write('id: $id, ')
+          ..write('projectId: $projectId, ')
+          ..write('cacheKey: $cacheKey, ')
+          ..write('payload: $payload, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class $ReadingSessionsTable extends ReadingSessions
     with TableInfo<$ReadingSessionsTable, ReadingSessionRow> {
   @override
@@ -10285,6 +10653,8 @@ abstract class _$LogoiDatabase extends GeneratedDatabase {
     this,
   );
   late final $ApiUsageLogTable apiUsageLog = $ApiUsageLogTable(this);
+  late final $MediaReferenceCacheTable mediaReferenceCache =
+      $MediaReferenceCacheTable(this);
   late final $ReadingSessionsTable readingSessions = $ReadingSessionsTable(
     this,
   );
@@ -10294,6 +10664,7 @@ abstract class _$LogoiDatabase extends GeneratedDatabase {
   late final ChatDao chatDao = ChatDao(this as LogoiDatabase);
   late final ConceptDao conceptDao = ConceptDao(this as LogoiDatabase);
   late final AiDao aiDao = AiDao(this as LogoiDatabase);
+  late final MediaDao mediaDao = MediaDao(this as LogoiDatabase);
   late final SearchDao searchDao = SearchDao(this as LogoiDatabase);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
@@ -10318,6 +10689,7 @@ abstract class _$LogoiDatabase extends GeneratedDatabase {
     aiProviders,
     aiResponseCache,
     apiUsageLog,
+    mediaReferenceCache,
     readingSessions,
   ];
   @override
@@ -10485,6 +10857,13 @@ abstract class _$LogoiDatabase extends GeneratedDatabase {
     ),
     WritePropagation(
       on: TableUpdateQuery.onTableName(
+        'projects',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('media_reference_cache', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
         'documents',
         limitUpdateKind: UpdateKind.delete,
       ),
@@ -10649,6 +11028,30 @@ final class $$ProjectsTableReferences
     ).filter((f) => f.projectId.id.sqlEquals($_itemColumn<String>('id')!));
 
     final cache = $_typedResult.readTableOrNull(_apiUsageLogRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<
+    $MediaReferenceCacheTable,
+    List<MediaReferenceCacheRow>
+  >
+  _mediaReferenceCacheRefsTable(_$LogoiDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.mediaReferenceCache,
+        aliasName: 'projects__id__media_reference_cache__project_id',
+      );
+
+  $$MediaReferenceCacheTableProcessedTableManager get mediaReferenceCacheRefs {
+    final manager = $$MediaReferenceCacheTableTableManager(
+      $_db,
+      $_db.mediaReferenceCache,
+    ).filter((f) => f.projectId.id.sqlEquals($_itemColumn<String>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(
+      _mediaReferenceCacheRefsTable($_db),
+    );
     return ProcessedTableManager(
       manager.$state.copyWith(prefetchedData: cache),
     );
@@ -10870,6 +11273,31 @@ class $$ProjectsTableFilterComposer
           }) => $$ApiUsageLogTableFilterComposer(
             $db: $db,
             $table: $db.apiUsageLog,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> mediaReferenceCacheRefs(
+    Expression<bool> Function($$MediaReferenceCacheTableFilterComposer f) f,
+  ) {
+    final $$MediaReferenceCacheTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.mediaReferenceCache,
+      getReferencedColumn: (t) => t.projectId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$MediaReferenceCacheTableFilterComposer(
+            $db: $db,
+            $table: $db.mediaReferenceCache,
             $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
             joinBuilder: joinBuilder,
             $removeJoinBuilderFromRootComposer:
@@ -11139,6 +11567,32 @@ class $$ProjectsTableAnnotationComposer
     );
     return f(composer);
   }
+
+  Expression<T> mediaReferenceCacheRefs<T extends Object>(
+    Expression<T> Function($$MediaReferenceCacheTableAnnotationComposer a) f,
+  ) {
+    final $$MediaReferenceCacheTableAnnotationComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.id,
+          referencedTable: $db.mediaReferenceCache,
+          getReferencedColumn: (t) => t.projectId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $$MediaReferenceCacheTableAnnotationComposer(
+                $db: $db,
+                $table: $db.mediaReferenceCache,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
 }
 
 class $$ProjectsTableTableManager
@@ -11162,6 +11616,7 @@ class $$ProjectsTableTableManager
             bool crossReferencesRefs,
             bool chatSessionsRefs,
             bool apiUsageLogRefs,
+            bool mediaReferenceCacheRefs,
           })
         > {
   $$ProjectsTableTableManager(_$LogoiDatabase db, $ProjectsTable table)
@@ -11236,6 +11691,7 @@ class $$ProjectsTableTableManager
                 crossReferencesRefs = false,
                 chatSessionsRefs = false,
                 apiUsageLogRefs = false,
+                mediaReferenceCacheRefs = false,
               }) {
                 return PrefetchHooks(
                   db: db,
@@ -11247,6 +11703,7 @@ class $$ProjectsTableTableManager
                     if (crossReferencesRefs) db.crossReferences,
                     if (chatSessionsRefs) db.chatSessions,
                     if (apiUsageLogRefs) db.apiUsageLog,
+                    if (mediaReferenceCacheRefs) db.mediaReferenceCache,
                   ],
                   addJoins: null,
                   getPrefetchedDataCallback: (items) async {
@@ -11398,6 +11855,27 @@ class $$ProjectsTableTableManager
                               ),
                           typedResults: items,
                         ),
+                      if (mediaReferenceCacheRefs)
+                        await $_getPrefetchedData<
+                          ProjectRow,
+                          $ProjectsTable,
+                          MediaReferenceCacheRow
+                        >(
+                          currentTable: table,
+                          referencedTable: $$ProjectsTableReferences
+                              ._mediaReferenceCacheRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $$ProjectsTableReferences(
+                                db,
+                                table,
+                                p0,
+                              ).mediaReferenceCacheRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.projectId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
                     ];
                   },
                 );
@@ -11426,6 +11904,7 @@ typedef $$ProjectsTableProcessedTableManager =
         bool crossReferencesRefs,
         bool chatSessionsRefs,
         bool apiUsageLogRefs,
+        bool mediaReferenceCacheRefs,
       })
     >;
 typedef $$DocumentsTableCreateCompanionBuilder =
@@ -19732,6 +20211,342 @@ typedef $$ApiUsageLogTableProcessedTableManager =
       ApiUsageLogRow,
       PrefetchHooks Function({bool projectId, bool documentId})
     >;
+typedef $$MediaReferenceCacheTableCreateCompanionBuilder =
+    MediaReferenceCacheCompanion Function({
+      required String id,
+      required String projectId,
+      required String cacheKey,
+      required String payload,
+      required int createdAt,
+      Value<int> rowid,
+    });
+typedef $$MediaReferenceCacheTableUpdateCompanionBuilder =
+    MediaReferenceCacheCompanion Function({
+      Value<String> id,
+      Value<String> projectId,
+      Value<String> cacheKey,
+      Value<String> payload,
+      Value<int> createdAt,
+      Value<int> rowid,
+    });
+
+final class $$MediaReferenceCacheTableReferences
+    extends
+        BaseReferences<
+          _$LogoiDatabase,
+          $MediaReferenceCacheTable,
+          MediaReferenceCacheRow
+        > {
+  $$MediaReferenceCacheTableReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static $ProjectsTable _projectIdTable(_$LogoiDatabase db) => db.projects
+      .createAlias('media_reference_cache__project_id__projects__id');
+
+  $$ProjectsTableProcessedTableManager get projectId {
+    final $_column = $_itemColumn<String>('project_id')!;
+
+    final manager = $$ProjectsTableTableManager(
+      $_db,
+      $_db.projects,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_projectIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $$MediaReferenceCacheTableFilterComposer
+    extends Composer<_$LogoiDatabase, $MediaReferenceCacheTable> {
+  $$MediaReferenceCacheTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get cacheKey => $composableBuilder(
+    column: $table.cacheKey,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get payload => $composableBuilder(
+    column: $table.payload,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $$ProjectsTableFilterComposer get projectId {
+    final $$ProjectsTableFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.projectId,
+      referencedTable: $db.projects,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ProjectsTableFilterComposer(
+            $db: $db,
+            $table: $db.projects,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$MediaReferenceCacheTableOrderingComposer
+    extends Composer<_$LogoiDatabase, $MediaReferenceCacheTable> {
+  $$MediaReferenceCacheTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get cacheKey => $composableBuilder(
+    column: $table.cacheKey,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get payload => $composableBuilder(
+    column: $table.payload,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $$ProjectsTableOrderingComposer get projectId {
+    final $$ProjectsTableOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.projectId,
+      referencedTable: $db.projects,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ProjectsTableOrderingComposer(
+            $db: $db,
+            $table: $db.projects,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$MediaReferenceCacheTableAnnotationComposer
+    extends Composer<_$LogoiDatabase, $MediaReferenceCacheTable> {
+  $$MediaReferenceCacheTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get cacheKey =>
+      $composableBuilder(column: $table.cacheKey, builder: (column) => column);
+
+  GeneratedColumn<String> get payload =>
+      $composableBuilder(column: $table.payload, builder: (column) => column);
+
+  GeneratedColumn<int> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  $$ProjectsTableAnnotationComposer get projectId {
+    final $$ProjectsTableAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.projectId,
+      referencedTable: $db.projects,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $$ProjectsTableAnnotationComposer(
+            $db: $db,
+            $table: $db.projects,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $$MediaReferenceCacheTableTableManager
+    extends
+        RootTableManager<
+          _$LogoiDatabase,
+          $MediaReferenceCacheTable,
+          MediaReferenceCacheRow,
+          $$MediaReferenceCacheTableFilterComposer,
+          $$MediaReferenceCacheTableOrderingComposer,
+          $$MediaReferenceCacheTableAnnotationComposer,
+          $$MediaReferenceCacheTableCreateCompanionBuilder,
+          $$MediaReferenceCacheTableUpdateCompanionBuilder,
+          (MediaReferenceCacheRow, $$MediaReferenceCacheTableReferences),
+          MediaReferenceCacheRow,
+          PrefetchHooks Function({bool projectId})
+        > {
+  $$MediaReferenceCacheTableTableManager(
+    _$LogoiDatabase db,
+    $MediaReferenceCacheTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MediaReferenceCacheTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MediaReferenceCacheTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$MediaReferenceCacheTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> projectId = const Value.absent(),
+                Value<String> cacheKey = const Value.absent(),
+                Value<String> payload = const Value.absent(),
+                Value<int> createdAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => MediaReferenceCacheCompanion(
+                id: id,
+                projectId: projectId,
+                cacheKey: cacheKey,
+                payload: payload,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String projectId,
+                required String cacheKey,
+                required String payload,
+                required int createdAt,
+                Value<int> rowid = const Value.absent(),
+              }) => MediaReferenceCacheCompanion.insert(
+                id: id,
+                projectId: projectId,
+                cacheKey: cacheKey,
+                payload: payload,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable(table),
+                  $$MediaReferenceCacheTableReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({projectId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (projectId) {
+                      state =
+                          state.withJoin(
+                                currentTable: table,
+                                currentColumn: table.projectId,
+                                referencedTable:
+                                    $$MediaReferenceCacheTableReferences
+                                        ._projectIdTable(db),
+                                referencedColumn:
+                                    $$MediaReferenceCacheTableReferences
+                                        ._projectIdTable(db)
+                                        .id,
+                              )
+                              as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $$MediaReferenceCacheTableProcessedTableManager =
+    ProcessedTableManager<
+      _$LogoiDatabase,
+      $MediaReferenceCacheTable,
+      MediaReferenceCacheRow,
+      $$MediaReferenceCacheTableFilterComposer,
+      $$MediaReferenceCacheTableOrderingComposer,
+      $$MediaReferenceCacheTableAnnotationComposer,
+      $$MediaReferenceCacheTableCreateCompanionBuilder,
+      $$MediaReferenceCacheTableUpdateCompanionBuilder,
+      (MediaReferenceCacheRow, $$MediaReferenceCacheTableReferences),
+      MediaReferenceCacheRow,
+      PrefetchHooks Function({bool projectId})
+    >;
 typedef $$ReadingSessionsTableCreateCompanionBuilder =
     ReadingSessionsCompanion Function({
       required String id,
@@ -20140,6 +20955,8 @@ class $LogoiDatabaseManager {
       $$AiResponseCacheTableTableManager(_db, _db.aiResponseCache);
   $$ApiUsageLogTableTableManager get apiUsageLog =>
       $$ApiUsageLogTableTableManager(_db, _db.apiUsageLog);
+  $$MediaReferenceCacheTableTableManager get mediaReferenceCache =>
+      $$MediaReferenceCacheTableTableManager(_db, _db.mediaReferenceCache);
   $$ReadingSessionsTableTableManager get readingSessions =>
       $$ReadingSessionsTableTableManager(_db, _db.readingSessions);
 }

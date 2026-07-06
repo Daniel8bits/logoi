@@ -1,0 +1,52 @@
+{
+  "elements": {
+    "MediaDao": {
+      "id": {
+        "library_uri": "package:logoi/core/database/daos/media_dao.dart",
+        "name": "MediaDao"
+      },
+      "declaration": {
+        "source_uri": "package:logoi/core/database/daos/media_dao.dart",
+        "offset": 208,
+        "name": "MediaDao"
+      },
+      "references": [
+        {
+          "library_uri": "package:logoi/core/database/tables/media_tables.dart",
+          "name": "media_reference_cache"
+        }
+      ],
+      "type": "dao",
+      "tables": [
+        {
+          "library_uri": "package:logoi/core/database/tables/media_tables.dart",
+          "name": "media_reference_cache"
+        }
+      ],
+      "views": [],
+      "includes": [],
+      "queries": [],
+      "dart_type": {
+        "elements": [
+          {
+            "lexeme": "MediaDao",
+            "import_uri": "package:logoi/core/database/daos/media_dao.dart"
+          }
+        ]
+      },
+      "database": {
+        "elements": [
+          {
+            "lexeme": "LogoiDatabase",
+            "import_uri": "package:logoi/core/database/database.dart"
+          }
+        ]
+      }
+    }
+  },
+  "imports": [
+    "package:drift/drift.dart",
+    "package:logoi/core/database/database.dart",
+    "package:logoi/core/database/tables/media_tables.dart"
+  ]
+}
