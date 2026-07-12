@@ -102,8 +102,19 @@ jobs:
             ```
 
             Build number: `${{ needs.version.outputs.build }}`
+
+            ## Instalação Linux
+
+            ```bash
+            # .deb (Debian/Ubuntu)
+            sudo apt install ./logoi-linux-amd64.deb
+
+            # .tar.gz (portable)
+            tar -xzf logoi-linux-x64.tar.gz -C /opt/logoi
+            ```
           files: |
             artifacts/logoi-linux-x64.tar.gz
+            artifacts/logoi-linux-amd64.deb
             artifacts/logoi-macos.zip
             artifacts/logoi-windows-x64.zip
             artifacts/SHA256SUMS

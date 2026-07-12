@@ -250,7 +250,13 @@ flutter run -d linux    # ou -d macos, -d windows
 flutter build linux --release --obfuscate --split-debug-info=build/debug-info
 flutter build macos --release --obfuscate --split-debug-info=build/debug-info
 flutter build windows --release --obfuscate --split-debug-info=build/debug-info
+
+# Empacotamento Linux (após build)
+bash tool/ci/package_linux.sh .    # logoi-linux-x64.tar.gz + logoi-linux-amd64.deb
+bash tool/ci/package_deb.sh .      # somente .deb
 ```
 
 - `--obfuscate` para dificultar reverse engineering
 - `--split-debug-info` para manter debug symbols separados (para crash reports)
+- **`.tar.gz`**: bundle portable, sem instalador
+- **`.deb`**: instala em `/opt/logoi/` com launcher e ícone; dependências runtime via `apt` (`libgtk-3-0`, `libsecret-1-0`)
