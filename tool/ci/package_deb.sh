@@ -47,6 +47,7 @@ dpkg-deb -x dist/logoi-linux-amd64.deb "$validate_tmpdir"
 test -f "$validate_tmpdir/opt/logoi/logoi"
 test -f "$validate_tmpdir/opt/logoi/lib/libpdfium.so"
 test -d "$validate_tmpdir/opt/logoi/data"
+dpkg-deb -f dist/logoi-linux-amd64.deb Depends | grep -q 'libkeybinder-3.0-0'
 
 if [[ -n "${GITHUB_OUTPUT:-}" ]]; then
   echo "deb=${ROOT}/dist/logoi-linux-amd64.deb" >> "$GITHUB_OUTPUT"

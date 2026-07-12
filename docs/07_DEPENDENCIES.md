@@ -267,11 +267,18 @@ sudo apt install clang cmake ninja-build pkg-config \
 - `--obfuscate` para dificultar reverse engineering
 - `--split-debug-info` para manter debug symbols separados (para crash reports)
 - **`.tar.gz`**: bundle portable, sem instalador
-- **`.deb`**: instala em `/opt/logoi/` com launcher e ícone; dependências runtime via `apt` (`libgtk-3-0`, `libsecret-1-0`, `libkeybinder-3.0`)
+- **`.deb`**: instala em `/opt/logoi/` com launcher e ícone; dependências runtime via `apt` (`libgtk-3-0`, `libsecret-1-0`, `libkeybinder-3.0-0`)
 
-Instalação a partir de release:
+Instalação a partir de release (use `apt install`, não `dpkg -i` — resolve dependências automaticamente):
 
 ```bash
 gpg --verify SHA256SUMS.asc SHA256SUMS && sha256sum -c SHA256SUMS
 sudo apt install ./logoi-linux-amd64.deb
+```
+
+Se instalou com `dpkg -i` e ficou desconfigurado:
+
+```bash
+sudo apt install libkeybinder-3.0-0
+sudo apt install -f
 ```
