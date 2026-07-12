@@ -105,6 +105,8 @@ jobs:
 
             ## Instalação Linux
 
+            Use `apt install` (não `dpkg -i`) — instala dependências automaticamente.
+
             ```bash
             # .deb (Debian/Ubuntu)
             sudo apt install ./logoi-linux-amd64.deb
