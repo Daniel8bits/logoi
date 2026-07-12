@@ -268,3 +268,10 @@ sudo apt install clang cmake ninja-build pkg-config \
 - `--split-debug-info` para manter debug symbols separados (para crash reports)
 - **`.tar.gz`**: bundle portable, sem instalador
 - **`.deb`**: instala em `/opt/logoi/` com launcher e ícone; dependências runtime via `apt` (`libgtk-3-0`, `libsecret-1-0`, `libkeybinder-3.0`)
+
+Instalação a partir de release:
+
+```bash
+gpg --verify SHA256SUMS.asc SHA256SUMS && sha256sum -c SHA256SUMS
+sudo apt install ./logoi-linux-amd64.deb
+```
