@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../models/media_reference.dart';
 import '../providers/visual_context_providers.dart';
 import 'image_gallery_tab.dart';
 import 'map_tab.dart';

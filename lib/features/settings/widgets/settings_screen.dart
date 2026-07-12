@@ -7,7 +7,6 @@ import '../../../shared/theme/app_theme.dart';
 import '../providers/media_settings_providers.dart';
 import '../providers/settings_providers.dart';
 import '../repositories/ai_settings_repository.dart';
-import '../repositories/media_settings_repository.dart';
 import 'project_limits_card.dart';
 
 /// Settings: AI providers, theme, cost dashboard (docs/06_UI_UX.md §5).
