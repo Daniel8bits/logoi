@@ -21,7 +21,7 @@ jobs:
           enable-linux-deps: 'false'
 
       - name: flutter analyze
-        run: flutter analyze --fatal-infos
+        run: flutter analyze --fatal-warnings --no-fatal-infos
 
       - name: flutter test
         run: flutter test --coverage

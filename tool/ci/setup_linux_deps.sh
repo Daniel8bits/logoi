@@ -10,4 +10,5 @@ sudo apt-get install -y --no-install-recommends \
   libgtk-3-dev \
   libblkid-dev \
   liblzma-dev \
-  libsecret-1-dev
+  libsecret-1-dev \
+  libkeybinder-3.0-dev

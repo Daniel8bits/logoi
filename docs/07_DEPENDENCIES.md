@@ -256,7 +256,15 @@ bash tool/ci/package_linux.sh .    # logoi-linux-x64.tar.gz + logoi-linux-amd64.
 bash tool/ci/package_deb.sh .      # somente .deb
 ```
 
+Dependências Linux para build local e CI (Ubuntu/Debian):
+
+```bash
+sudo apt install clang cmake ninja-build pkg-config \
+  libgtk-3-dev libblkid-dev liblzma-dev libsecret-1-dev libkeybinder-3.0-dev
+# ou: bash tool/ci/setup_linux_deps.sh
+```
+
 - `--obfuscate` para dificultar reverse engineering
 - `--split-debug-info` para manter debug symbols separados (para crash reports)
 - **`.tar.gz`**: bundle portable, sem instalador
-- **`.deb`**: instala em `/opt/logoi/` com launcher e ícone; dependências runtime via `apt` (`libgtk-3-0`, `libsecret-1-0`)
+- **`.deb`**: instala em `/opt/logoi/` com launcher e ícone; dependências runtime via `apt` (`libgtk-3-0`, `libsecret-1-0`, `libkeybinder-3.0`)
