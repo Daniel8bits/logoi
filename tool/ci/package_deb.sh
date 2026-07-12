@@ -26,7 +26,6 @@ if [[ ! -x "$NFPM_BIN" ]]; then
 fi
 
 TMP_CONFIG="$(mktemp)"
-trap 'rm -f "$TMP_CONFIG"' EXIT
 sed "s/^version: .*/version: \"${VERSION}\"/" packaging/linux/nfpm.yaml > "$TMP_CONFIG"
 
 "$NFPM_BIN" package \
@@ -41,6 +40,14 @@ if [[ -z "$deb" ]]; then
 fi
 
 mv "$deb" dist/logoi-linux-amd64.deb
+
+validate_tmpdir="$(mktemp -d)"
+trap 'rm -f "$TMP_CONFIG"; rm -rf "$validate_tmpdir"' EXIT
+dpkg-deb -x dist/logoi-linux-amd64.deb "$validate_tmpdir"
+test -f "$validate_tmpdir/opt/logoi/logoi"
+test -f "$validate_tmpdir/opt/logoi/lib/libpdfium.so"
+test -d "$validate_tmpdir/opt/logoi/data"
+
 if [[ -n "${GITHUB_OUTPUT:-}" ]]; then
   echo "deb=${ROOT}/dist/logoi-linux-amd64.deb" >> "$GITHUB_OUTPUT"
 fi

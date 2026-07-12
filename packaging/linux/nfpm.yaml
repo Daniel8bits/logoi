@@ -16,7 +16,8 @@ depends:
 
 contents:
   - src: build/linux/x64/release/bundle/
-    dst: /opt/logoi/
+    dst: /opt/logoi
+    type: tree
     file_info:
       mode: 0755
   - src: packaging/linux/logoi.desktop
