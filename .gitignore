@@ -1,2 +1,75 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+*.swo
+*~
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
-local
+# IDE
+*.iml
+*.ipr
+*.iws
+.idea/
+*.code-workspace
+
+# VS Code — keep shared launch/tasks if added later
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# Cursor / local editor state
+.cursor/
+
+# Flutter / Dart / Pub
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+**/doc/api/
+*.g.dart.bak
+
+# Build outputs
+/build/
+/dist/
+
+# Coverage & test artifacts
+/coverage/
+test/.test_coverage.dart
+
+# Obfuscation / symbolication (release builds)
+app.*.symbols
+app.*.map.json
+
+# Secrets & local env
+.env
+.env.*
+!.env.example
+
+# Local user data (projects, PDFs, dev scratch)
+/local/
+
+# Platform ephemeral (also listed in linux/macos/windows/.gitignore)
+**/flutter/ephemeral/
+**/Flutter/ephemeral/
+**/Pods/
+**/xcuserdata/
+**/dgph
+
+# Windows build artifacts
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+windows/x64/
+windows/x86/
